@@ -1,5 +1,5 @@
 
-CC = cc main.c
+CC = cc main.c ./src/keyevent.c ./src/paint.c ./src/pixel.c ./src/load.c
 LIB = minilibx_linux/libmlx_Linux.a \
 
 all:
