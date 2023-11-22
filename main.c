@@ -26,11 +26,10 @@ int	main(void)
     vars.person.img->curr_sx = 0;
     vars.person.img->curr_sy = 0;
     // Pintando plano
-   // paintcanva(&vars,&vars.img,0,0);
+    paintcanva(&vars,&vars.img,0,0);
     // Pintando Personagem
     int i;
     i = 0;
-    /*
     while(i <= 448)
     {   
          paintcanvaW(&vars,&vars.walls,0,i, 32, 32);
@@ -52,11 +51,11 @@ int	main(void)
     {
             paintcanvaW(&vars,&vars.walls,j,0, 32, 32);
             j -= 32;
-    }*/
+    }
      vars.keypress = 0;
    paintcanvaW(&vars,&vars.person.img[0],0,0, TAM_C, TAM_C);
    // printf("%i--------  \n", my_mlx_pixel_get(&vars.person.img[0], 0 ,0));
-   mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);
+    mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);
      mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);
      mlx_loop_hook(vars.mlx, keynotpress, &vars);
     mlx_loop(vars.mlx);

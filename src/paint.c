@@ -78,24 +78,24 @@ void    paintwall(t_vars *vars)
     h = 0;
     while(h <= 448)
     {   
-         paintcanvaW(vars,&vars->walls,0,h, 32, 32);
-         h += 32;
+         paintcanvaW(vars,&vars->walls,0,h, TAM_P, TAM_P);
+         h += TAM_P;
     }
     int j;
     j = 0;
     while(j < 960)
     {   
-         paintcanvaW(vars,&vars->walls,j,h, 32, 32);
-         j += 32;
+         paintcanvaW(vars,&vars->walls,j,h, TAM_P, TAM_P);
+         j += TAM_P;
     }
     while(h >= 0 )
     {
-           paintcanvaW(vars,&vars->walls,j,h, 32, 32);
-         h -= 32;
+           paintcanvaW(vars,&vars->walls,j,h, TAM_P, TAM_P);
+         h -= TAM_P;
     }
     while(j > 0)
     {
-            paintcanvaW(vars,&vars->walls,j,0, 32, 32);
-            j -= 32;
+            paintcanvaW(vars,&vars->walls,j,0, TAM_P, TAM_P);
+            j -= TAM_P;
     }
 }

@@ -9,6 +9,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
+#include <time.h>
 
 #define ESC 65307
 # define KEY_D 100
@@ -16,7 +17,9 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_W 119
-# define TAM_C 64
+# define TAM_C 32
+# define TAM_P 144
+
 
 
 typedef struct s_img
@@ -36,10 +39,10 @@ typedef struct s_img
 
 typedef struct s_character
 {
-    t_img img[10];
-    char *relative_path[10];
-    int    img_width[10];
-    int    img_height[10];
+    t_img img[50];
+    char *relative_path[50];
+    int    img_width[50];
+    int    img_height[50];
     int     curr_sx;
     int     curr_sy;
 }   t_character;
@@ -73,6 +76,7 @@ void    paintwall(t_vars *vars);
 // Event Key
 int key_event(int keycode, t_vars *vars);
 int     keynotpress(t_vars *vars);
+
 
 
 #endif
