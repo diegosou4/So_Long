@@ -16,7 +16,7 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_W 119
-
+# define TAM_C 64
 
 
 typedef struct s_img
@@ -44,9 +44,14 @@ typedef struct s_character
     int     curr_sy;
 }   t_character;
 
+
+
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
+    int     keypress;
+    int     keycode;
+    int     action;
     t_character person;
     t_img   img;
     t_img   canva;
@@ -67,6 +72,7 @@ void    paintwall(t_vars *vars);
 
 // Event Key
 int key_event(int keycode, t_vars *vars);
+int     keynotpress(t_vars *vars);
 
 
 #endif
