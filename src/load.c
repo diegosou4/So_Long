@@ -42,7 +42,8 @@ vars->person.img[25] = load_img("img/character/D/03.xpm",vars);
 vars->person.img[26] = load_img("img/character/D/04.xpm",vars);
 vars->person.img[27] = load_img("img/character/D/05.xpm",vars);
 vars->person.img[28] = load_img("img/character/D/06.xpm",vars);
-vars->person.img[29] = load_img("img/character/D/07.xpm",vars);
+vars->person.img[29] = 
+/*
 vars->person.img[30] = load_img("img/character/U/08.xpm",vars);
 vars->person.img[31] = load_img("img/character/U/09.xpm",vars);
 vars->person.img[32] = load_img("img/character/U/00.xpm",vars);
@@ -53,4 +54,16 @@ vars->person.img[36] = load_img("img/character/U/04.xpm",vars);
 vars->person.img[37] = load_img("img/character/U/05.xpm",vars);
 vars->person.img[38] = load_img("img/character/U/06.xpm",vars);
 vars->person.img[39] = load_img("img/character/U/07.xpm",vars);
+*/
+vars->person.img[30] = load_img("img/character/D/08.xpm",vars);
+vars->person.img[31] = load_img("img/character/D/09.xpm",vars);
+vars->person.img[32] = load_img("img/character/D/00.xpm",vars);
+vars->person.img[33] = load_img("img/character/D/01.xpm",vars);
+vars->person.img[34] = load_img("img/character/D/02.xpm",vars);
+vars->person.img[35] = load_img("img/character/D/03.xpm",vars);
+vars->person.img[36] = load_img("img/character/D/04.xpm",vars);
+vars->person.img[37] = load_img("img/character/D/05.xpm",vars);
+vars->person.img[38] = load_img("img/character/D/06.xpm",vars);
+vars->person.img[39] = load_img("img/character/D/07.xpm",vars);
+
 }
