@@ -28,32 +28,14 @@ int	main(void)
     // Pintando plano
     paintcanva(&vars,&vars.img,0,0);
     // Pintando Personagem
-    int i;
-    i = 0;
-    while(i <= 448)
-    {   
-         paintcanvaW(&vars,&vars.walls,0,i, 32, 32);
-         i += 32;
-    }
-    int j;
-    j = 0;
-    while(j < 960)
-    {   
-         paintcanvaW(&vars,&vars.walls,j,i, 32, 32);
-         j += 32;
-    }
-    while(i >= 0 )
-    {
-           paintcanvaW(&vars,&vars.walls,j,i, 32, 32);
-         i -= 32;
-    }
-    while(j > 0)
-    {
-            paintcanvaW(&vars,&vars.walls,j,0, 32, 32);
-            j -= 32;
-    }
+
      vars.keypress = 0;
-   paintcanvaW(&vars,&vars.person.img[0],0,0, TAM_C, TAM_C);
+  
+     paintcanvaW(&vars, &vars.person.img[0] ,0, 0, 40, 0, width, heigth);
+     //paintcanvaW(&vars, &vars.person.img[0], 0, 0, 160, 120, width, heigth);
+    
+  
+
    // printf("%i--------  \n", my_mlx_pixel_get(&vars.person.img[0], 0 ,0));
     mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);
      mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);

@@ -17,9 +17,9 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_W 119
-# define TAM_C 32
 # define TAM_P 144
-
+# define width 400
+# define heigth 40
 
 
 typedef struct s_img
@@ -39,10 +39,10 @@ typedef struct s_img
 
 typedef struct s_character
 {
-    t_img img[50];
-    char *relative_path[50];
-    int    img_width[50];
-    int    img_height[50];
+    t_img img[10];
+    char *relative_path[10];
+    int    img_width[10];
+    int    img_height[10];
     int     curr_sx;
     int     curr_sy;
 }   t_character;
@@ -69,10 +69,10 @@ void loadallimg(t_vars *vars);
 
 // Paint
 void    paintcanva(t_vars *varg, t_img *img, int sx, int sy);
-void   paintback(t_vars *varg, t_img *img, int sx, int sy, float w, float h);
-void    paintcanvaW(t_vars *varg, t_img *img, int sx, int sy, float w, float h);
+void   paintback(t_vars *varg, t_img *img, int sx, int sy,int tamsprite,int start, float w, float h);
+void    paintcanvaW(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int start ,float w, float h);
 void    paintwall(t_vars *vars);
-
+void    paintchar(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int start,float w, float h);
 // Event Key
 int key_event(int keycode, t_vars *vars);
 int     keynotpress(t_vars *vars);
