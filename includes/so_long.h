@@ -61,6 +61,7 @@ typedef struct	s_vars {
     t_img   canva;
     t_img   walls;
 }				t_vars;
+void    ft_usleep(long long time);
 
 // Pixel and Img
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
@@ -77,6 +78,8 @@ void    paintchar(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int 
 // Event Key
 int key_event(int keycode, t_vars *vars);
 int     keynotpress(t_vars *vars);
+
+// Time
 
 
 
