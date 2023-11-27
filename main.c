@@ -25,13 +25,14 @@ int	main(void)
 
     vars.person.img->curr_sx = 0;
     vars.person.img->curr_sy = 0;
+    vars.person.direction = 0;
     // Pintando plano
     paintcanva(&vars,&vars.img,0,0);
     // Pintando Personagem
 
      vars.keypress = 0;
   
-     paintcanvaW(&vars, &vars.person.img[0] ,0, 0, 40, 0, width, heigth);
+     paintcanvaW(&vars, &vars.person.img[0] ,0, 0, 360, 320, width, heigth);
      //paintcanvaW(&vars, &vars.person.img[0], 0, 0, 160, 120, width, heigth);
     
   

@@ -43,6 +43,7 @@ typedef struct s_character
     char *relative_path[10];
     int    img_width[10];
     int    img_height[10];
+    int     direction;
     int     curr_sx;
     int     curr_sy;
 }   t_character;

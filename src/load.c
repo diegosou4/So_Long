@@ -14,5 +14,7 @@ void loadallimg(t_vars *vars)
 {
 
     vars->person.img[0] = load_img("img/character/R/Sprites.xpm",vars);
-    vars->person.img[0] = load_img("img/character/R/Sprites.xpm",vars);
+    vars->person.img[1] = load_img("img/character/L/Sprites.xpm",vars);
+    vars->person.img[2] = load_img("img/character/D/Sprites.xpm",vars);
+    vars->person.img[3] = load_img("img/character/U/Sprites.xpm",vars);
 }
