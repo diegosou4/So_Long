@@ -60,3 +60,43 @@ char	*ft_itoa(int n)
     str[len_str - 1] = '\0';
 	return (str);
 }
+int     len_str(char **str)
+{
+    int i;
+    i = 0;
+    while(str[i])
+        i++;
+    return(i);
+}
+char    **ft_dstrjoin(char **str, char *buffer)
+{
+    char **new_str;
+    int i;
+    int j;
+    int k;
+    i = 0;
+    j = 0;
+    k = 0;
+    if(!str)
+    {
+        str = (char **) malloc (sizeof(char *) * 1);
+        str[0] = NULL;
+    }
+    if(!str || !buffer)
+        return(NULL);
+    new_str = (char **)malloc((1 + len_str(str)) + 1 * sizeof(char *));
+    if(!new_str)
+        return(NULL);
+    while(str[i])
+    {
+        new_str[i] = str[i];
+        i++;
+    }
+    while(buffer && buffer[j])
+    {
+        new_str[i][j] = buffer[j];
+        j++;
+    }
+    new_str[i + j] = '\0';
+    return(new_str);
+}

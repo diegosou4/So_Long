@@ -6,13 +6,14 @@
 int	main(void)
 {
     t_vars  vars;
-  
+    int j;
     
     vars.mlx = mlx_init();
     vars.img = load_img("img/back/Background_space.xpm",&vars);
     vars.win = mlx_new_window(vars.mlx, vars.img.img_width, vars.img.img_height, "Amoung us");
     // Load personagem
-    
+     j = read_map("maps/map00.ber");
+
     vars.walls  = load_img("img/walls/f.xpm",&vars);
      loadallimg(&vars);
 
@@ -29,7 +30,8 @@ int	main(void)
     // Pintando plano
    // paintcanva(&vars,&vars.img,0,0);
     // Pintando Personagem
-
+    
+   
      vars.keypress = 0;
   
    // paintcanvaW(&vars, &vars.person.img[0] ,0, 0, 360, 320, width, heigth);

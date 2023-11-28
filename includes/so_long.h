@@ -3,7 +3,7 @@
 #define SO_LONG_H
 
 #include "../minilibx_linux/mlx.h"
-
+#include "../src/externfunc/get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -102,9 +102,13 @@ int down_animation(t_vars *vars, int d, int j);
 
 // Utils
 char	*ft_itoa(int n);
+char    **ft_dstrjoin(char **str, char *buffer);
+int     len_str(char **str);
 
 // Count move
 void count_move(t_vars *vars);
 
+// Map
+int read_map(char *map);
 
 #endif
