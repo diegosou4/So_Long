@@ -33,9 +33,9 @@ int	main(void)
      vars.keypress = 0;
   
      paintcanvaW(&vars, &vars.person.img[0] ,0, 0, 360, 320, width, heigth);
-     //paintcanvaW(&vars, &vars.person.img[0], 0, 0, 160, 120, width, heigth);
+     paintcanvaW(&vars, &vars.person.img[0], 0, 0, 160, 120, width, heigth);
     
-  
+    
 
    // printf("%i--------  \n", my_mlx_pixel_get(&vars.person.img[0], 0 ,0));
     mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);

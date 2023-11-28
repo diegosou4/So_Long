@@ -10,6 +10,7 @@
 # include <fcntl.h>
 # include <math.h>
 #include <time.h>
+#include <stdlib.h>
 
 #define ESC 65307
 # define KEY_D 100
@@ -44,8 +45,10 @@ typedef struct s_character
     int    img_width[10];
     int    img_height[10];
     int     direction;
+    int     moviment;
     int     curr_sx;
     int     curr_sy;
+
 }   t_character;
 
 
@@ -81,6 +84,19 @@ int     keynotpress(t_vars *vars);
 
 // Time
 
+// Event char
+int    charstop(t_vars *vars, int d, int i);
+int right_animation(t_vars *vars, int d, int j);
+int left_animation(t_vars *vars, int d, int j);
+int up_animation(t_vars *vars, int d, int j);
+int down_animation(t_vars *vars, int d, int j);
+
+
+// Utils
+char	*ft_itoa(int n);
+
+// Count move
+void count_move(t_vars *vars);
 
 
 #endif
