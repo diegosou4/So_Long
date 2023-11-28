@@ -18,7 +18,7 @@
 # define KEY_S 115
 # define KEY_D 100
 # define KEY_W 119
-# define TAM_P 144
+# define TAM_P 40
 # define width 400
 # define heigth 40
 
@@ -51,7 +51,14 @@ typedef struct s_character
 
 }   t_character;
 
+typedef struct s_assets
+{
+    t_img img;
+    char *relative_path;
+    int    img_width;
+    int    img_height;
 
+}   t_assets;
 
 typedef struct	s_vars {
 	void	*mlx;
@@ -59,6 +66,7 @@ typedef struct	s_vars {
     int     keypress;
     int     keycode;
     int     action;
+    t_assets    assets;
     t_character person;
     t_img   img;
     t_img   canva;
