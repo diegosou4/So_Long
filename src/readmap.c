@@ -26,39 +26,40 @@ int read_map(char *map)
 }
 int validate_map(char *str)
 {
-    int i;
-    int j;
     int len;
-    j = 0;
+    int i;
+    char **map;
     i = 0;
     len = 0;
-    char **map;
-    while(str[len] != '\n')
+    while(str[len] != '\n' && str[len] != '\0')
         len++;
-    while(str[i] != '\0')
-    {
-        if(str[i] == '\n')
-            j++;  
-        i++;
-    }
-    if(i < 3)
+    if(validate_map2(str,len) < 3)
         return(0);
-    j++;
     map = ft_split(str, '\n');
-    printf("%i deu certo \n" ,validate_map2(map, len));
     return(1);
 }
 
-int     validate_map2(char **map, int len)
+int validate_map2(char *str, int len)
 {
-    int i;
-
+    int line_len;
+    int i;   
+    int column;
+    column = 0;
     i = 0;
-    while(map[i] != NULL)
+    while(str[i] != '\0')
     {
-        if(ft_strlen(map[i]) != len)
-            return(0);
+        line_len = 0;
+        while(str[i] != '\n' && str[i] != '\0')
+        {
+            line_len++;
+            i++;
+        }
+        if(line_len != len)
+            return 0;
+        if(str[i] == '\n')
+            column++;  
         i++;
     }
-    return(1);
+    column++;
+    return(column);
 }

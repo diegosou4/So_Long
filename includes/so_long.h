@@ -112,6 +112,6 @@ void count_move(t_vars *vars);
 // Map
 int read_map(char *map);
 int validate_map(char *str);
-int validate_map2(char **map, int len);
+int validate_map2(char *str, int len);
 
 #endif

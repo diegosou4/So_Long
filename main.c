@@ -13,7 +13,13 @@ int	main(void)
     vars.win = mlx_new_window(vars.mlx, vars.img.img_width, vars.img.img_height, "Amoung us");
     // Load personagem
    j = read_map("maps/map00.ber");
-
+    if(j == 0)
+    {
+        printf("Error\n");
+        exit(0);
+    } else{
+      printf("Mapa valido\n");
+    }
     vars.walls  = load_img("img/walls/f.xpm",&vars);
      loadallimg(&vars);
 
