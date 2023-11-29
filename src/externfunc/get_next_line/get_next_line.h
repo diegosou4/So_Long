@@ -15,8 +15,8 @@
 
 
 char *get_next_line(int fd);
-
-
+char    *ft_strjoin(char *str, char *buffer);
+int ft_strlen(char *str);
 
 
 #endif

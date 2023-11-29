@@ -12,7 +12,7 @@ int	main(void)
     vars.img = load_img("img/back/Background_space.xpm",&vars);
     vars.win = mlx_new_window(vars.mlx, vars.img.img_width, vars.img.img_height, "Amoung us");
     // Load personagem
-     j = read_map("maps/map00.ber");
+   j = read_map("maps/map00.ber");
 
     vars.walls  = load_img("img/walls/f.xpm",&vars);
      loadallimg(&vars);

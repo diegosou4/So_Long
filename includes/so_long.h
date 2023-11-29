@@ -101,14 +101,17 @@ int down_animation(t_vars *vars, int d, int j);
 
 
 // Utils
-char	*ft_itoa(int n);
-char    **ft_dstrjoin(char **str, char *buffer);
-int     len_str(char **str);
 
+char	*ft_itoa(int n);
+char	*ft_strdup(const char *src);
+char	**ft_split(char const *s, char c);
+void	*ft_calloc(size_t nmemb, size_t size);
 // Count move
 void count_move(t_vars *vars);
 
 // Map
 int read_map(char *map);
+int validate_map(char *str);
+int validate_map2(char **map, int len);
 
 #endif
