@@ -11,7 +11,8 @@ SRC = ./src/keyevent.c \
     ./src/externfunc/get_next_line/get_next_line.c \
     ./src/utils1.c \
     ./src/split.c \
-    ./src/calloc.c 
+    ./src/calloc.c \
+    ./src/maputils.c 
 
 CC = cc -g main.c ${SRC}
 LIB = minilibx_linux/libmlx_Linux.a

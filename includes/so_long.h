@@ -23,6 +23,8 @@
 # define heigth 40
 
 
+
+
 typedef struct s_img
 {
     void	*img;
@@ -104,7 +106,7 @@ int down_animation(t_vars *vars, int d, int j);
 
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *src);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c, int len, int column);
 void	*ft_calloc(size_t nmemb, size_t size);
 // Count move
 void count_move(t_vars *vars);
@@ -113,5 +115,9 @@ void count_move(t_vars *vars);
 int read_map(char *map);
 int validate_map(char *str);
 int validate_map2(char *str, int len);
+char    *ftjoinmap(char *str, char *buffer);
+char *joinmap(char *new_str, char *buffer);
+
+
 
 #endif
