@@ -15,6 +15,8 @@
 #include <string.h>
 
 
+
+
 int read_map(char *map)
 {
     char    *str;
@@ -48,29 +50,24 @@ int validate_map(char *str)
     int len;
     int i;
     char **map;
+    int k;
     t_map smap;
     len = 0;
     while(str[len] != '\n' && str[len] != '\0')
         len++;
-    if(validate_map2(str,len) < 3)
-        return(0);
     i = validate_map2(str,len);
-    int k;
-    k =  validate_map2(str,len);
-   map = ft_split(str, '\n', len, k );
-    smap.map = map;
-    smap.coletables = 0;
-    smap.exit = 0;
-    smap.player = 0;
-    k = checkmap(map,k,len,&smap);
-    while(i > 0)
+    if(i < 3)
+        return(0);
+    map = ft_split(str, '\n', len, i );
+    init_smap(&smap, map);
+    k = i;
+    i = checkmap(map,k,len,&smap);
+    while(k > 0)
     {
-        i--;
-        free(map[i]);
+        k--;
+        free(map[k]);
     }
     free(map); 
-   
-    
     return(1);
 }
 

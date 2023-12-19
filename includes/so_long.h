@@ -126,6 +126,7 @@ int validate_map2(char *str, int len);
 char    *ftjoinmap(char *str, char *buffer);
 char *joinmap(char *new_str, char *buffer);
 int checkmap(char **map, int column,int len, t_map *smap);
-
+void    init_smap(t_map *smap, char **map);
+void    free_mapst(char **map, int i);
 
 #endif
