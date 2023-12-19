@@ -76,19 +76,25 @@ char	**ft_split(char const *s, char c, int len, int column)
     p = 0;
     k = 0;
     i = 0;
-    str = (char **) malloc (column + 1 * sizeof(char *));
+    str = (char **) malloc ((column + 1)* sizeof(char *));
     if (!str)
         return (0);
     while (i < column)
     {
-        str[i] = (char *)malloc ((len + 1) *
+        str[i] = (char *)malloc ((len + 1 ) *
                 sizeof(char));
         if (!str[i])
             return (free_malloc(str, i - 1 ));
-        k = ft_givestring((char *)(s + p), c, str[i]);
-        p = p + k;
+        k = ft_givestring((char *)(s + p), c, str[i]);	
+		p = p + k;
         i++;
     }
     str[column] = NULL;
+	printf("%s\n", str[0]);
+	printf("%s\n", str[1]);
+	printf("%s\n", str[2]);
+	printf("%s\n", str[3]);
+	printf("%s\n", str[4]);
+	printf("%s\n", str[5]);
     return (str);
 }

@@ -12,6 +12,8 @@ int read_map(char *map)
     int sizestr;
     sizestr = 1;
     str = NULL;
+    if(fd < 0)
+        return(0);
     while(sizestr != 0)
     {
         buffer = get_next_line(fd);
@@ -40,11 +42,13 @@ int validate_map(char *str)
     if(validate_map2(str,len) < 3)
         return(0);
     i = validate_map2(str,len);
-   map = ft_split(str, '\n', len, validate_map2(str,len));
-    while((i - 1) != 0)
+    int k;
+    k =  validate_map2(str,len);
+   map = ft_split(str, '\n', len, k );
+    while(i > 0)
     {
-        free(map[i - 1]);
         i--;
+        free(map[i]);
     }
     free(map);
     return(1);

@@ -15,9 +15,8 @@ int	main(void)
     */
     // Load personagem
     int j;
-   j = read_map("maps/map00.ber");
+  j = read_map("maps/map00.ber");
 
-    
   /*  vars.walls  = load_img("img/walls/f.xpm",&vars);
     loadallimg(&vars);
   

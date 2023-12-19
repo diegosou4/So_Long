@@ -15,7 +15,7 @@ SRC = ./src/keyevent.c \
     ./src/maputils.c 
 
 CC = cc -g main.c ${SRC}
-LIB = minilibx_linux/libmlx_Linux.a
+LIB = minilibx-linux/libmlx_Linux.a
 
 all:
 	${CC} ${LIB} -lX11 -lXext	
