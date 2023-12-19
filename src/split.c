@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   split.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/19 12:30:32 by diegmore          #+#    #+#             */
+/*   Updated: 2023/12/19 12:30:33 by diegmore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 
 #include "../includes/so_long.h"
@@ -90,11 +102,5 @@ char	**ft_split(char const *s, char c, int len, int column)
         i++;
     }
     str[column] = NULL;
-	printf("%s\n", str[0]);
-	printf("%s\n", str[1]);
-	printf("%s\n", str[2]);
-	printf("%s\n", str[3]);
-	printf("%s\n", str[4]);
-	printf("%s\n", str[5]);
     return (str);
 }

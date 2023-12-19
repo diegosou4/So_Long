@@ -5,7 +5,7 @@
 
 int	main(void)
 {
-  /* 
+  /*
     t_vars  vars;
 
     
@@ -16,8 +16,8 @@ int	main(void)
     // Load personagem
     int j;
   j = read_map("maps/map00.ber");
-
-  /*  vars.walls  = load_img("img/walls/f.xpm",&vars);
+   /*
+    vars.walls  = load_img("img/walls/f.xpm",&vars);
     loadallimg(&vars);
   
     // Colocando imagem
@@ -47,7 +47,7 @@ int	main(void)
     mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);
     mlx_loop_hook(vars.mlx, keynotpress, &vars);
     mlx_loop(vars.mlx);
-    */
+ */
    return (0 );
 }
 

@@ -12,7 +12,9 @@ SRC = ./src/keyevent.c \
     ./src/utils1.c \
     ./src/split.c \
     ./src/calloc.c \
-    ./src/maputils.c 
+    ./src/maputils.c \
+    ./src/createmap.c \
+    ./src/checkmap.c
 
 CC = cc -g main.c ${SRC}
 LIB = minilibx-linux/libmlx_Linux.a

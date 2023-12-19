@@ -1,47 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calloc.c                                           :+:      :+:    :+:   */
+/*   createmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 12:30:51 by diegmore          #+#    #+#             */
-/*   Updated: 2023/12/19 12:30:52 by diegmore         ###   ########.fr       */
+/*   Created: 2023/12/19 12:31:05 by diegmore          #+#    #+#             */
+/*   Updated: 2023/12/19 12:31:06 by diegmore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-
-static  void    *ft_bzero(void *s, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (n > 0)
-	{
-		*(unsigned char *)(s + i) = 0;
-		i++;
-		n--;
-	}
-	return (s);
-}
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*p;
-	size_t	result;
-
-	result = nmemb * size;
-	if (nmemb == 0 && size == 0)
-		p = (void *)malloc(1);
-	p = (void *)malloc(result);
-	if (!p)
-		return (0);
-	p = ft_bzero(p, result);
-	if (!p)
-	{
-		return (0);
-	}
-	return (p);
-}

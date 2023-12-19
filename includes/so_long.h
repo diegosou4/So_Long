@@ -23,6 +23,14 @@
 # define heigth 40
 
 
+typedef struct s_map
+{
+    char **map;
+    int coletables;
+    int exit;
+    int player;
+    
+} t_map;
 
 
 typedef struct s_img
@@ -117,7 +125,7 @@ int validate_map(char *str);
 int validate_map2(char *str, int len);
 char    *ftjoinmap(char *str, char *buffer);
 char *joinmap(char *new_str, char *buffer);
-
+int checkmap(char **map, int column,int len, t_map *smap);
 
 
 #endif

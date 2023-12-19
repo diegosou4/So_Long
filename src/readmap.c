@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   readmap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/19 12:30:25 by diegmore          #+#    #+#             */
+/*   Updated: 2023/12/19 12:30:27 by diegmore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "../includes/so_long.h"
 #include <string.h>
@@ -36,6 +48,7 @@ int validate_map(char *str)
     int len;
     int i;
     char **map;
+    t_map smap;
     len = 0;
     while(str[len] != '\n' && str[len] != '\0')
         len++;
@@ -45,12 +58,19 @@ int validate_map(char *str)
     int k;
     k =  validate_map2(str,len);
    map = ft_split(str, '\n', len, k );
+    smap.map = map;
+    smap.coletables = 0;
+    smap.exit = 0;
+    smap.player = 0;
+    k = checkmap(map,k,len,&smap);
     while(i > 0)
     {
         i--;
         free(map[i]);
     }
-    free(map);
+    free(map); 
+   
+    
     return(1);
 }
 
@@ -80,3 +100,4 @@ int  validate_map2(char *str, int len)
     column++;
     return(column);
 }
+
