@@ -3,9 +3,20 @@
 
 
 
-int	main(void)
+int	main(int argc,char **argv)
 {
-  /*
+  int j;
+  
+  if(argc == 2)
+  {
+    j = read_map(argv[1]);
+    return(0);
+  }
+  else
+    write(1, "Argumento Invalido\n",20);
+  return(0);
+
+    /*
     t_vars  vars;
 
     
@@ -14,8 +25,6 @@ int	main(void)
     vars.win = mlx_new_window(vars.mlx, vars.img.img_width, vars.img.img_height, "Amoung us");
     */
     // Load personagem
-    int j;
-  j = read_map("maps/map00.ber");
    /*
     vars.walls  = load_img("img/walls/f.xpm",&vars);
     loadallimg(&vars);

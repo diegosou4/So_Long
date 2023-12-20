@@ -48,6 +48,7 @@ int validate_map(char *str)
     i = checkmap(smap.map,column,lenchar,&smap);
     if(i == 0)
         print_error(smap, column);
+        
     return(1);
 }
 
