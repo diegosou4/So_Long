@@ -33,25 +33,28 @@ int read_map(char *map)
 }
 int validate_map(char *str)
 {
-    int len;
+    int lenchar;
     int i;
-    char **map;
     int k;
     t_map smap;
-    len = len_map(str);
-    i = validate_map2(str,len);
-    if(i < 3)
+    int column;
+
+    lenchar = len_map(str);
+    column = validate_map2(str,lenchar);
+   
+    if(column < 3)
         return(0);
-    map = ft_split(str, '\n', len, i );
-    init_smap(&smap, map);
-    k = i;
-    i = checkmap(map,k,len,&smap);
-    while(k > 0)
+   
+    smap.map = ft_split(str, '\n', lenchar, column);
+    init_smap(&smap);
+    i = checkmap(smap.map,column,lenchar,&smap);
+    while(column > 0)
     {
-        k--;
-        free(map[k]);
+        column--;
+        free(smap.map[column]);
     }
-    free(map); 
+    i = print_erro();
+    free(smap.map);
     return(1);
 }
 

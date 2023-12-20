@@ -22,19 +22,12 @@
 # define width 400
 # define heigth 40
 
-typedef struct s_cordmap
-{
-    int sx;
-    int sy;
-    int value;
-} t_cordmap;
 
 
 typedef struct s_map
 {
     char **map;
     int coletables;
-    t_cordmap *mapins;
     int exit;
     int player;
     
@@ -135,10 +128,12 @@ int validate_map2(char *str, int len);
 char    *ftjoinmap(char *str, char *buffer);
 char *joinmap(char *new_str, char *buffer);
 int checkmap(char **map, int column,int len, t_map *smap);
-void    init_smap(t_map *smap, char **map);
+void    init_smap(t_map *smap);
 void    free_mapst(char **map, int i);
 int len_map(char *str);
 char *open_read(int fd);
-int    put_map(t_map *s_map, char **map, int column);
+int    put_map(t_map *smap, char **map, int column);
+int print_erro(void);
+void map_flags(char cmap, t_map *smap);
 
 #endif

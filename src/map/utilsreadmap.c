@@ -35,3 +35,16 @@ char *open_read(int fd)
     }
     return(str);
 }
+
+int print_erro(void)
+{
+
+    write(1,"Deu erro nesse mapa ai chefe", 30);
+
+    return(0);
+}
+
+void free_map(char **map, int column)
+{
+
+}

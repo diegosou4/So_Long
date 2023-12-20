@@ -12,65 +12,54 @@
 
 #include "../includes/so_long.h"
 
-
-int    put_map(t_map *s_map, char **map, int column)
+void map_flags(char cmap, t_map *smap)
 {
-    int j;
-    int i;
-    int k;
-    k = 0;
-    i  = 0;
-    while(i < column)
-    {
-        j = 0;
-        while(map[i][j] != '\0')
-        {
-            s_map->mapins[k].value = map[i][j];
-            s_map->mapins[k].sx = i;
-            s_map->mapins[k].sy = j;
-            k++;
-            j++;
-        }
-        i++;
-    }
+    if(cmap == 'C')
+        smap->coletables += 1;
+    if(cmap == 'E')
+        smap->exit += 1;
+    if(cmap == 'P')
+        smap->player += 1;
 
 }
 
-
+int  map_walls(char *map)
+{
+    int i;
+    i = 0;
+    while(map[i] != '\0')
+    {
+        if(map[i] != '1')
+            return(0);
+    i++;
+    }
+    return(i);
+}
 int checkmap(char **map, int column,int len, t_map *smap)
 {
-    int j;put_map(t_map *s_map, char **map)
-    while(map[0][j] != '\0')
-    {
-        if(map[0][j] != '1')
-            return(0);
-        j++;
-    }
+    int j;
+    int i;
+    int fwall;
+
+    j = 0;
+    fwall = map_walls(map[0]);
+    i = 0;
     while(i < column - 1)
     {
         j = 0;
         while(map[i][j] != '\0')
         {
-            if(map[i][j] == 'C')
-                smap->coletables += 1;
-            if(map[i][j] == 'E')
-                smap->exit += 1;
-            if(map[i][j] == 'P')
-                smap->player += 1;
+           map_flags(map[i][j], smap);
             j++;
         }
         i++;
     }
-    j = 0;
-    while(map[column - 1][j] != '\0')
-    {
-        if(map[column - 1][j] != '1')
-            return(0);
-        j++;
-    }
-    put_map(smap, map, column);
+    i = map_walls(map[column - 1]);
+    if(fwall == 0 || i == 0)
+        return(0);
     return(1);
 }
+
 
 
 
