@@ -42,8 +42,7 @@ int validate_map(char *str)
     column = validate_map2(str,lenchar);
    
     if(column < 3)
-        return(0);
-   
+        return(print_e());
     smap.map = ft_split(str, '\n', lenchar, column);
     init_smap(&smap);
     i = checkmap(smap.map,column,lenchar,&smap);

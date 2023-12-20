@@ -49,3 +49,9 @@ int print_error(t_map smap, int column)
 
     return(0);
 }
+
+int print_e(void)
+{
+    write(1,"Deu erro nesse mapa ai chefe", 30);
+    return(0);
+}

@@ -13,15 +13,31 @@
 #include "../includes/so_long.h"
 
 
+void ftjoinmap2(char *str, char *buffer, char *new_str)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while(str[i] && str)
+    {
+        new_str[i] = str[i];
+        i++;
+    }
+    while(buffer[j] && buffer)
+    {
+        new_str[i + j] = buffer[j];
+        j++;
+    }
+    new_str[i + j] = '\0';   
+}
+
 char    *ftjoinmap(char *str, char *buffer)
 {
     char *new_str;
     int len_s;
     int len_b;
-    int i;
-    int j;
-    i = 0;
-    j = 0;
     len_s = ft_strlen(str);
     len_b = ft_strlen(buffer);
     if (!str)
@@ -37,17 +53,7 @@ char    *ftjoinmap(char *str, char *buffer)
         free(str);
         return(NULL);
     }
-    while(str[i] && str)
-    {
-        new_str[i] = str[i];
-        i++;
-    }
-    while(buffer[j] && buffer)
-    {
-        new_str[i + j] = buffer[j];
-        j++;
-    }
-    new_str[i + j] = '\0';      
+    ftjoinmap2(str,buffer,new_str);
     free(buffer);
     free(str);
     return(new_str);
