@@ -133,7 +133,9 @@ void    free_mapst(char **map, int i);
 int len_map(char *str);
 char *open_read(int fd);
 int    put_map(t_map *smap, char **map, int column);
-int print_erro(void);
+int print_error(t_map smap, int column);
 void map_flags(char cmap, t_map *smap);
+int mid_wall(char **map, int len, int column);
+int check_charmap(t_map *smap);
 
 #endif

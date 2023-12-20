@@ -15,28 +15,6 @@
 #include "../includes/so_long.h"
 
 
-static int	ft_numberchar(char *s, char sep)
-{
-	int	i;
-	int	numberchar;
-
-	numberchar = 0;
-	i = 0;
-	while (s[i])
-	{
-		while (s[i] == sep && s[i])
-			i++;
-		while (s[i] != sep && s[i])
-		{
-			i++;
-			numberchar++;
-		}
-		if (s[i] == sep)
-			return (numberchar);
-	}
-	return (numberchar);
-}
-
 static int	ft_givestring(char *s, char sep, char *dest)
 {
 	int	i;

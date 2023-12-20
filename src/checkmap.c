@@ -35,6 +35,29 @@ int  map_walls(char *map)
     }
     return(i);
 }
+
+int mid_wall(char **map, int len, int column)
+{
+    int i;
+    i = 0;
+    while (i < column)
+    {
+        printf("%s debug, %i \n", map[i], map[i][len - 1]);
+        if(map[i][0] != '1' || map[i][len - 1] != '1')
+            return(0);
+        i++;
+    }
+    return(1);
+}
+
+int check_charmap(t_map *smap)
+{
+    if(smap->coletables != 0 && smap->exit == 1 && smap->player == 1)
+        return(1);
+    else
+        return(0);
+}
+
 int checkmap(char **map, int column,int len, t_map *smap)
 {
     int j;
@@ -55,9 +78,10 @@ int checkmap(char **map, int column,int len, t_map *smap)
         i++;
     }
     i = map_walls(map[column - 1]);
-    if(fwall == 0 || i == 0)
+    j = mid_wall(map,len, column);
+    if(fwall == 0 || i == 0 || j == 0)
         return(0);
-    return(1);
+    return(check_charmap(smap));
 }
 
 

@@ -18,7 +18,7 @@ SRC = ./src/keyevent.c \
     ./src/map/inicializemap.c \
     ./src/map/utilsreadmap.c
 
-CC = cc -g main.c ${SRC}
+CC = cc  -g main.c ${SRC}
 LIB = minilibx-linux/libmlx_Linux.a
 
 all:

@@ -35,7 +35,6 @@ int validate_map(char *str)
 {
     int lenchar;
     int i;
-    int k;
     t_map smap;
     int column;
 
@@ -48,15 +47,13 @@ int validate_map(char *str)
     smap.map = ft_split(str, '\n', lenchar, column);
     init_smap(&smap);
     i = checkmap(smap.map,column,lenchar,&smap);
-    while(column > 0)
-    {
-        column--;
-        free(smap.map[column]);
-    }
-    i = print_erro();
-    free(smap.map);
+    if(i == 0)
+        print_error(smap, column);
     return(1);
 }
+
+    
+  
 
 int  validate_map2(char *str, int len)
 {
