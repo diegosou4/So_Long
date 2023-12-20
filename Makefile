@@ -1,7 +1,7 @@
 SRC = ./src/keyevent.c \
     ./src/paint.c \
     ./src/pixel.c \
-    ./src/readmap.c \
+    ./src/map/readmap.c \
     ./src/load.c \
     ./src/sleep.c \
     ./src/animations.c \
@@ -15,7 +15,8 @@ SRC = ./src/keyevent.c \
     ./src/maputils.c \
     ./src/createmap.c \
     ./src/checkmap.c \
-    ./src/inicializemap.c  
+    ./src/map/inicializemap.c \
+    ./src/map/utilsreadmap.c
 
 CC = cc -g main.c ${SRC}
 LIB = minilibx-linux/libmlx_Linux.a

@@ -10,13 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void    init_smap(t_map *smap, char **map)
 {
+    int i;
+    int j;
+    int k;
+    i = 0;
+    j = 0;
+    k = 0;
     smap->map = map;
     smap->coletables = 0;
     smap->exit = 0;
     smap->player = 0;
+    while(map[i])
+    {
+        j = 0;
+        while(map[i][j] != '\0')
+        {
+        j++;
+        k++;
+        }
+        i++;
+    }
+    smap->mapins = malloc(sizeof(smap->mapins) * k);
 }
 

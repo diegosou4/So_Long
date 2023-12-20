@@ -11,34 +11,20 @@
 /* ************************************************************************** */
 
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 #include <string.h>
-
-
 
 
 int read_map(char *map)
 {
-    char    *str;
-    char    *buffer;
-    int fd = open(map, O_RDONLY);
+    int fd;
+    char *str;
     int i;
-    int sizestr;
-    sizestr = 1;
-    str = NULL;
+    fd = open(map, O_RDONLY);
     if(fd < 0)
         return(0);
-    while(sizestr != 0)
-    {
-        buffer = get_next_line(fd);
-        sizestr = ft_strlen(buffer);
-        if(sizestr == 0)
-        {
-            free(buffer);
-            break;
-        }
-   
-       str = ftjoinmap(str, buffer);
+    else{
+        str = open_read(fd);
     }
     i = validate_map(str);
     free(str);
@@ -52,9 +38,7 @@ int validate_map(char *str)
     char **map;
     int k;
     t_map smap;
-    len = 0;
-    while(str[len] != '\n' && str[len] != '\0')
-        len++;
+    len = len_map(str);
     i = validate_map2(str,len);
     if(i < 3)
         return(0);

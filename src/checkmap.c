@@ -13,15 +13,33 @@
 #include "../includes/so_long.h"
 
 
+int    put_map(t_map *s_map, char **map, int column)
+{
+    int j;
+    int i;
+    int k;
+    k = 0;
+    i  = 0;
+    while(i < column)
+    {
+        j = 0;
+        while(map[i][j] != '\0')
+        {
+            s_map->mapins[k].value = map[i][j];
+            s_map->mapins[k].sx = i;
+            s_map->mapins[k].sy = j;
+            k++;
+            j++;
+        }
+        i++;
+    }
 
+}
 
 
 int checkmap(char **map, int column,int len, t_map *smap)
 {
-    int j;
-    int i;
-    i = 1;
-    j = 0;
+    int j;put_map(t_map *s_map, char **map)
     while(map[0][j] != '\0')
     {
         if(map[0][j] != '1')
@@ -50,7 +68,10 @@ int checkmap(char **map, int column,int len, t_map *smap)
             return(0);
         j++;
     }
+    put_map(smap, map, column);
     return(1);
 }
+
+
 
 
