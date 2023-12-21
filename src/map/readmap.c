@@ -34,7 +34,7 @@ int read_map(char *map,t_map *smap)
 int validate_map(char *str,t_map *smap)
 {
     int i;
-    
+
     smap->lenchar = len_map(str);
     smap->column = validate_map2(str,smap->lenchar);
     if(smap->column < 3)
@@ -44,12 +44,13 @@ int validate_map(char *str,t_map *smap)
     init_smap(smap);
     i = checkmap(smap->map,smap->column,smap->lenchar,smap);
     if(i == 0)
-          return(print_error(smap, smap->column));
+          return(print_error(smap, smap->column,0));
     flood_fill( smap->sy[0],smap->sx[0], smap);
     i = end_valid(smap);
     if(i == 0)
-       return(print_error(smap, smap->column));
-    
+       return(print_error(smap, smap->column,0));
+    if(smap->column > MAX_X  || smap->lenchar > MAX_Y)
+        return(print_error(smap, smap->column,1));
     return(print_d());
 }
 

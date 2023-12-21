@@ -21,7 +21,9 @@
 # define TAM_P 40
 # define width 400
 # define heigth 40
-
+# define MAX_X 10
+# define MAX_Y 20
+# define TAM_B 64
 
 
 typedef struct s_map
@@ -139,7 +141,7 @@ void    free_mapst(char **map, int i);
 int len_map(char *str);
 char *open_read(int fd);
 int    put_map(t_map *smap, char **map, int column);
-int print_error(t_map *smap, int column);
+int print_error(t_map *smap, int column, int i);
 int print_e(void);
 int print_d(void);
 void map_flags(char cmap, t_map *smap, int sy, int sx);
@@ -148,5 +150,8 @@ int check_charmap(t_map *smap);
 void flood_fill(int sy, int sx, t_map *smap);
 int end_valid(t_map *smap);
 
+// Window
+
+void    draw_window(t_map smapi, t_vars *vars);
 
 #endif

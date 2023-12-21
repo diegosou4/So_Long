@@ -15,8 +15,6 @@
 
 int key_event(int keycode, t_vars *vars)
 {
-
-     static int j;
      // vars->keypress = 1;
     if(keycode == ESC && vars->keypress == 0)
     {
