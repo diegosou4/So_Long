@@ -13,10 +13,10 @@
 #include "../includes/so_long.h"
 
 
-int end_valid(t_map smap)
+int end_valid(t_map *smap)
 {
-    if(smap.coletables[0] == smap.coletables[1] 
-        && smap.exit[0] == smap.exit[1]
+    if(smap->coletables[0] == smap->coletables[1] 
+        && smap->exit[0] == smap->exit[1]
     )
         return(1);
     else

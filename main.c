@@ -6,10 +6,11 @@
 int	main(int argc,char **argv)
 {
   int j;
-  
+  t_map gamemap;
   if(argc == 2)
   {
-    j = read_map(argv[1]);
+    
+    j = read_map(argv[1],&gamemap);
 
     return(0);
   }

@@ -127,8 +127,8 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void count_move(t_vars *vars);
 
 // Map
-int read_map(char *map);
-int validate_map(char *str);
+int read_map(char *map, t_map *smap);
+int validate_map(char *str, t_map *smap);
 int validate_map2(char *str, int len);
 char    *ftjoinmap(char *str, char *buffer);
 void ftjoinmap2(char *str, char *buffer, char *new_str);
@@ -139,13 +139,14 @@ void    free_mapst(char **map, int i);
 int len_map(char *str);
 char *open_read(int fd);
 int    put_map(t_map *smap, char **map, int column);
-int print_error(t_map smap, int column);
+int print_error(t_map *smap, int column);
 int print_e(void);
+int print_d(void);
 void map_flags(char cmap, t_map *smap, int sy, int sx);
 int mid_wall(char **map, int len, int column);
 int check_charmap(t_map *smap);
-void flood_fill(int sy, int sx, t_map smap);
-int end_valid(t_map smap);
+void flood_fill(int sy, int sx, t_map *smap);
+int end_valid(t_map *smap);
 
 
 #endif

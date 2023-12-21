@@ -36,9 +36,16 @@ char *open_read(int fd)
     return(str);
 }
 
-int print_error(t_map smap, int column)
+int print_error(t_map *smap, int column)
 {
-
+    while(column > 0)
+    {
+        column--;
+        free(smap->map[column]);
+        free(smap->cpymap[column]);
+    }
+    free(smap->map);
+    free(smap->cpymap);
     
     
     write(1,"Deu erro nesse mapa ai chefe", 30);
@@ -50,4 +57,10 @@ int print_e(void)
 {
     write(1,"Deu erro nesse mapa ai chefe", 30);
     return(0);
+}
+
+int print_d(void)
+{
+    write(1,"Mapa carregado com sucesso ;) bom jogo \n",41);
+    return(1);
 }
