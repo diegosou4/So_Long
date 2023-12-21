@@ -14,9 +14,15 @@
 
 void    init_smap(t_map *smap)
 {
-    smap->coletables = 0;
-    smap->exit = 0;
-    smap->player = 0;
-    smap->direction = 'D';
+    int i;
+    i = 0;
+    while(i < 2)
+    {
+        smap->coletables[i] = 0;
+        smap->exit[i] = 0;
+      i++;
+    }
+         smap->player = 0;
+
 }
 

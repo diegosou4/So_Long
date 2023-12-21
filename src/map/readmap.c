@@ -33,29 +33,38 @@ int read_map(char *map)
 }
 int validate_map(char *str)
 {
-    int lenchar;
     int i;
     t_map smap;
-    int column;
-
-    lenchar = len_map(str);
-    column = validate_map2(str,lenchar);
-   
-    if(column < 3)
+    smap.lenchar = len_map(str);
+    smap.column = validate_map2(str,smap.lenchar);
+    if(smap.column < 3)
         return(print_e());
-    smap.map = ft_split(str, '\n', lenchar, column);
+    smap.map = ft_split(str, '\n', smap.lenchar, smap.column);
+    smap.cpymap = ft_split(str, '\n', smap.lenchar, smap.column);
     init_smap(&smap);
-    i = checkmap(smap.map,column,lenchar,&smap);
+    i = checkmap(smap.map,smap.column,smap.lenchar,&smap);
     if(i == 0)
-        print_error(smap, column);
-//   flood_fill( smap.sy[0],smap.sx[0], smap);
-    while(column > 0)
+        print_error(smap, smap.column);
+    flood_fill( smap.sy[0],smap.sx[0], smap);
+    i = end_valid(smap);
+    if(i == 0)
     {
-        column--;
-        free(smap.map[column]);
+    while (smap.column > 0)
+    {
+        smap.column--;
+        free(smap.map[smap.column]);
+        free(smap.cpymap[smap.column]);
     }
-    free(smap.map);
-    return(column);
+         free(smap.cpymap);
+         free(smap.map);
+    print_error(smap, smap.column);
+    }
+        
+    else
+    {
+        write(1, "O pai passou aqui bebe\n",23);
+    }
+    return(1);
 }
 
     
@@ -88,25 +97,21 @@ int  validate_map2(char *str, int len)
     return(column);
 }
 
+
+
 void flood_fill(int sy, int sx, t_map smap)
 {
-    static int colletables;
-    static int exit;
 
-
-    if(smap.map[sy][sx] == '1')
+    if(smap.cpymap[sy][sx] == '1' || smap.cpymap[sy][sx] == '3')
         return;
-    
-    if(smap.map[sy][sx] == 'C')
-        colletables++;
-    if(smap.map[sy][sx] == 'E')
-        exit++;
+    if(smap.cpymap[sy][sx] == 'C')
+        smap.coletables[1] += 1;
+    if(smap.cpymap[sy][sx] == 'E')
+        smap.exit[1] += 1;
 
+    smap.cpymap[sy][sx] = '3';
     flood_fill(sy + 1, sx,smap);
     flood_fill(sy - 1, sx,smap);
     flood_fill(sy, sx + 1,smap);
     flood_fill(sy, sx - 1,smap);
-
-    printf("%i coletavies, %i saida \n", colletables, exit );
-
 }

@@ -15,10 +15,10 @@
 void map_flags(char cmap, t_map *smap, int sy, int sx)
 {
     if(cmap == 'C')
-        smap->coletables += 1;
+        smap->coletables[0] += 1;
     if(cmap == 'E')
     {
-        smap->exit += 1;
+        smap->exit[0] += 1;
         smap->sx[1] = sx;
         smap->sy[1] = sy;
     }
@@ -58,7 +58,7 @@ int mid_wall(char **map, int len, int column)
 
 int check_charmap(t_map *smap)
 {
-    if(smap->coletables != 0 && smap->exit == 1 && smap->player == 1)
+    if(smap->coletables[0] != 0 && smap->exit[0] == 1 && smap->player == 1)
         return(1);
     else
         return(0);

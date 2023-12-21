@@ -27,12 +27,14 @@
 typedef struct s_map
 {
     char **map;
-    int coletables;
-    int exit;
+    char **cpymap;
+    int column;
+    int lenchar;
+    int coletables[2];
+    int exit[2];
     int player;
     int sx[2];
     int sy[2];
-    char direction;
     
 } t_map;
 
@@ -143,5 +145,7 @@ void map_flags(char cmap, t_map *smap, int sy, int sx);
 int mid_wall(char **map, int len, int column);
 int check_charmap(t_map *smap);
 void flood_fill(int sy, int sx, t_map smap);
+int end_valid(t_map smap);
+
 
 #endif

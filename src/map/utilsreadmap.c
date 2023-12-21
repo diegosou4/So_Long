@@ -38,12 +38,8 @@ char *open_read(int fd)
 
 int print_error(t_map smap, int column)
 {
-    while (column > 0)
-    {
-        column--;
-        free(smap.map[column]);
-    }
-    free(smap.map);
+
+    
     
     write(1,"Deu erro nesse mapa ai chefe", 30);
 
