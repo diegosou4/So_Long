@@ -48,8 +48,14 @@ int validate_map(char *str)
     i = checkmap(smap.map,column,lenchar,&smap);
     if(i == 0)
         print_error(smap, column);
-        
-    return(1);
+//   flood_fill( smap.sy[0],smap.sx[0], smap);
+    while(column > 0)
+    {
+        column--;
+        free(smap.map[column]);
+    }
+    free(smap.map);
+    return(column);
 }
 
     
@@ -82,3 +88,25 @@ int  validate_map2(char *str, int len)
     return(column);
 }
 
+void flood_fill(int sy, int sx, t_map smap)
+{
+    static int colletables;
+    static int exit;
+
+
+    if(smap.map[sy][sx] == '1')
+        return;
+    
+    if(smap.map[sy][sx] == 'C')
+        colletables++;
+    if(smap.map[sy][sx] == 'E')
+        exit++;
+
+    flood_fill(sy + 1, sx,smap);
+    flood_fill(sy - 1, sx,smap);
+    flood_fill(sy, sx + 1,smap);
+    flood_fill(sy, sx - 1,smap);
+
+    printf("%i coletavies, %i saida \n", colletables, exit );
+
+}

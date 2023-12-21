@@ -12,40 +12,46 @@
 
 #include "../includes/so_long.h"
 
-void map_flags(char cmap, t_map *smap)
+void map_flags(char cmap, t_map *smap, int sy, int sx)
 {
     if(cmap == 'C')
         smap->coletables += 1;
     if(cmap == 'E')
+    {
         smap->exit += 1;
+        smap->sx[1] = sx;
+        smap->sy[1] = sy;
+    }
     if(cmap == 'P')
+    {
         smap->player += 1;
-
+        smap->sx[0] = sx;
+        smap->sy[0] = sy;
+    }
 }
 
 int  map_walls(char *map)
 {
-    int i;
-    i = 0;
-    while(map[i] != '\0')
+    int sy;
+    sy = 0;
+    while(map[sy] != '\0')
     {
-        if(map[i] != '1')
+        if(map[sy] != '1')
             return(0);
-    i++;
+    sy++;
     }
-    return(i);
+    return(sy);
 }
 
 int mid_wall(char **map, int len, int column)
 {
-    int i;
-    i = 0;
-    while (i < column)
+    int sy;
+    sy = 0;
+    while (sy < column)
     {
-        printf("%s debug, %i \n", map[i], map[i][len - 1]);
-        if(map[i][0] != '1' || map[i][len - 1] != '1')
+        if(map[sy][0] != '1' || map[sy][len - 1] != '1')
             return(0);
-        i++;
+        sy++;
     }
     return(1);
 }
@@ -60,26 +66,26 @@ int check_charmap(t_map *smap)
 
 int checkmap(char **map, int column,int len, t_map *smap)
 {
-    int j;
-    int i;
+    int sx;
+    int sy;
     int fwall;
 
-    j = 0;
+    sx = 0;
     fwall = map_walls(map[0]);
-    i = 0;
-    while(i < column - 1)
+    sy = 0;
+    while(sy < column - 1)
     {
-        j = 0;
-        while(map[i][j] != '\0')
+        sx = 0;
+        while(map[sy][sx] != '\0')
         {
-           map_flags(map[i][j], smap);
-            j++;
+           map_flags(map[sy][sx], smap,sy,sx);
+            sx++;
         }
-        i++;
+        sy++;
     }
-    i = map_walls(map[column - 1]);
-    j = mid_wall(map,len, column);
-    if(fwall == 0 || i == 0 || j == 0)
+    sy = map_walls(map[column - 1]);
+    sx = mid_wall(map,len, column);
+    if(fwall == 0 || sy == 0 || sx == 0)
         return(0);
     return(check_charmap(smap));
 }

@@ -17,5 +17,6 @@ void    init_smap(t_map *smap)
     smap->coletables = 0;
     smap->exit = 0;
     smap->player = 0;
+    smap->direction = 'D';
 }
 

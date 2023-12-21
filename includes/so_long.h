@@ -30,6 +30,9 @@ typedef struct s_map
     int coletables;
     int exit;
     int player;
+    int sx[2];
+    int sy[2];
+    char direction;
     
 } t_map;
 
@@ -136,8 +139,9 @@ char *open_read(int fd);
 int    put_map(t_map *smap, char **map, int column);
 int print_error(t_map smap, int column);
 int print_e(void);
-void map_flags(char cmap, t_map *smap);
+void map_flags(char cmap, t_map *smap, int sy, int sx);
 int mid_wall(char **map, int len, int column);
 int check_charmap(t_map *smap);
+void flood_fill(int sy, int sx, t_map smap);
 
 #endif
