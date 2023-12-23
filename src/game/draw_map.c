@@ -17,9 +17,14 @@ void    draw_window(t_map smapi, t_vars *vars)
 {
     vars->mlx = mlx_init();
     vars->win = mlx_new_window(vars->mlx, (smapi.lenchar * TAM_B),(smapi.column * TAM_B), "So_Long");
-  //  loadallimg(vars);
-    printf("%i sx e sy %i \n", (smapi.sx[0] * 64), (smapi.sy[0] * 64));
-    vars->person.img->curr_sx = ((smapi.sx[0] + 1) * 64);
-    vars->person.img->curr_sy = ((smapi.sy[0] +1 )* 64);
+    vars->canva.img = mlx_new_image(vars->mlx,(smapi.lenchar * TAM_B),(smapi.column * TAM_B));
+    vars->canva.addr = mlx_get_data_addr(vars->canva.img, &vars->canva.bits_per_pixel, &vars->canva.line_length,
+								&vars->canva.endian);
+    loadallimg(vars);
+    vars->person.direction = 0;
+    vars->keypress = 0;
+    vars->person.curr_sx = (((smapi.sx[0]) + 1) * 64);
+    vars->person.curr_sy = (((smapi.sy[0]) + 1)* 64);
+     mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
 
 }
