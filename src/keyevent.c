@@ -18,6 +18,7 @@ int key_event(int keycode, t_vars *vars)
      // vars->keypress = 1;
     if(keycode == ESC && vars->keypress == 0)
     {
+        free_game(vars);
         mlx_clear_window(vars->mlx, vars->win);
         mlx_destroy_window(vars->mlx, vars->win);
         exit(0);

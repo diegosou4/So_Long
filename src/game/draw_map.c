@@ -25,6 +25,8 @@ void    draw_window(t_map smapi, t_vars *vars)
     vars->keypress = 0;
     vars->person.curr_sx = (((smapi.sx[0]) + 1) * 64);
     vars->person.curr_sy = (((smapi.sy[0]) + 1)* 64);
-     mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
+    paintcanvaW(vars, &vars->person.img[0] ,vars->person.curr_sx, vars->person.curr_sy, 360, 320, width, heigth);
+
+    mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
 
 }

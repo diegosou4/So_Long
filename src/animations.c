@@ -22,9 +22,6 @@ int    charstop(t_vars *vars, int d, int i)
     //paintcanva(vars,&vars->img,0,0);
    
     paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy , i + TAM_P, i, width, heigth);
-    paintcanvaW(vars, &vars->assets.img ,64, 64 , 64, 0, 64, 64);
-    paintcanvaW(vars, &vars->assets.img ,128, 64 , 64, 0, 64, 64);
-    paintcanvaW(vars, &vars->assets.img ,192, 64 , 64, 0, 64, 64);
     mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
     i += TAM_P;
     if(i == 400)
@@ -39,10 +36,6 @@ int right_animation(t_vars *vars, int d, int j)
             j = 0;
     paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy , (j + TAM_P) , j, width, heigth);
     vars->person.curr_sx += 8;
-   // paintcanva(vars,&vars->img,0,0);
-    paintcanvaW(vars, &vars->assets.img ,64, 0 , 64, 64, 64, 64);
-    paintcanvaW(vars, &vars->assets.img ,128, 0 , 64, 64, 64, 64);
-    paintcanvaW(vars, &vars->assets.img ,192, 0 , 64, 64, 64, 64);
     paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy , (j + TAM_P), (j), width, heigth);
     j += TAM_P;
    

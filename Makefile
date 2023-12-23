@@ -17,7 +17,9 @@ SRC = ./src/keyevent.c \
     ./src/map/checkmap.c \
     ./src/map/inicializemap.c \
     ./src/map/utilsreadmap.c \
-    ./src/game/draw_map.c 
+    ./src/game/draw_map.c \
+    ./src/game/draw_wall.c \
+    ./src/game/free_game.c 
 
 CC = cc  -g main.c ${SRC}
 LIB = minilibx-linux/libmlx_Linux.a

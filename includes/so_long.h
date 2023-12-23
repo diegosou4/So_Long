@@ -85,8 +85,10 @@ typedef struct	s_vars {
     int     keypress;
     int     keycode;
     int     action;
+    t_map  game;
     t_assets    assets;
     t_character person;
+    t_img      coletables;
     t_img   img;
     t_img   canva;
     t_img   walls;
@@ -153,5 +155,6 @@ int end_valid(t_map *smap);
 // Window
 
 void    draw_window(t_map smapi, t_vars *vars);
-
+void draw_wall(t_map smapi, t_vars *vars);
+void    free_game(t_vars *vars);
 #endif
