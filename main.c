@@ -20,7 +20,7 @@ int	main(int argc,char **argv)
     mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);
     mlx_loop_hook(vars.mlx, keynotpress, &vars);
     mlx_loop(vars.mlx);
-       return (0 );
+    return (0);
   }
     
   

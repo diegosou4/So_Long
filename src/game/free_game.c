@@ -28,3 +28,12 @@ void    free_game(t_vars *vars)
     free(vars->game.cpymap);
 
 }
+
+void exit_game(t_vars *vars)
+{
+        free_game(vars);
+        mlx_clear_window(vars->mlx, vars->win);
+        mlx_destroy_image(vars->mlx, vars->canva.img);
+        mlx_destroy_window(vars->mlx, vars->win);
+        exit(0);
+}

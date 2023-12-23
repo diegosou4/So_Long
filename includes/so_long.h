@@ -59,10 +59,10 @@ typedef struct s_img
 
 typedef struct s_character
 {
-    t_img img[10];
-    char *relative_path[10];
-    int    img_width[10];
-    int    img_height[10];
+    t_img img[4];
+    char *relative_path;
+    int    img_width;
+    int    img_height;
     int     direction;
     int     moviment;
     int     curr_sx;
@@ -157,4 +157,8 @@ int end_valid(t_map *smap);
 void    draw_window(t_map smapi, t_vars *vars);
 void draw_wall(t_map smapi, t_vars *vars);
 void    free_game(t_vars *vars);
+void free_img(t_vars *vars);
+void exit_game(t_vars *vars);
+
+int     is_wall(t_vars *vars);
 #endif

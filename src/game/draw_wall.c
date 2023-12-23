@@ -32,6 +32,5 @@ void draw_wall(t_map smapi, t_vars *vars)
         }
         i++;
     }
-    mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
 
 }
