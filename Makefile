@@ -4,8 +4,8 @@ SRC = ./src/keyevent.c \
     ./src/map/readmap.c \
     ./src/load.c \
     ./src/sleep.c \
-    ./src/animations.c \
     ./src/utils.c \
+    ./src/animations.c \
     ./src/countmove.c \
     ./src/externfunc/get_next_line/get_next_line_utils.c \
     ./src/externfunc/get_next_line/get_next_line.c \
@@ -22,7 +22,7 @@ SRC = ./src/keyevent.c \
     ./src/game/free_game.c \
     ./src/game/game_rules.c
 
-CC = cc -g main.c ${SRC}
+CC = cc -Wall -Wextra -Werror fsatanize main.c ${SRC}
 LIB = minilibx-linux/libmlx_Linux.a
 
 all:

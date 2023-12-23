@@ -1,5 +1,14 @@
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyevent.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/19 12:31:15 by diegmore          #+#    #+#             */
+/*   Updated: 2023/12/19 12:31:16 by diegmore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
@@ -37,8 +46,11 @@ int key_event(int keycode, t_vars *vars)
 
 int     keynotpress(t_vars *vars)
 {
-    int j;
-    j = 360;
+    static int j;
+    static int i;
+        
+    if(vars->keypress == 0)
+        i = charstop(vars, vars->person.direction, i);
     if(vars->keypress == 1 && vars->keycode == KEY_D)
         j = right_animation(vars, vars->person.direction , j);
     if(vars->keypress == 1 && vars->keycode == KEY_A)
@@ -47,5 +59,6 @@ int     keynotpress(t_vars *vars)
         j = down_animation(vars, vars->person.direction , j);
     if(vars->keypress == 1 && vars->keycode == KEY_W)
         j = up_animation(vars, vars->person.direction , j);
+    count_move(vars);
     return(1);
 }
