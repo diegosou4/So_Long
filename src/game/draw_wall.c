@@ -24,6 +24,8 @@ void draw_wall(t_map smapi, t_vars *vars)
         j = 0;
         while(j < smapi.lenchar)
         {
+            if(smapi.map[i][j] == '0')
+                 paintcanvaW(vars, &vars->floor , (j * 64), (i  * 64), 64, 0, 64, 64);
             if(smapi.map[i][j] == 'E')
             {   
                 vars->door.curr_sx = (j * 64);
@@ -34,7 +36,11 @@ void draw_wall(t_map smapi, t_vars *vars)
             if(smapi.map[i][j] == '1')
                 paintcanvaW(vars, &vars->walls , (j * 64), (i  * 64), 120, 0, 64, 64);
             if(smapi.map[i][j] == 'C')
+            {
+                paintcanvaW(vars, &vars->floor , (j * 64), (i  * 64), 64, 0, 64, 64);
                 paintcanvaW(vars, &vars->coletables , (j * 64), (i  * 64), 32, 0, 32, 32);
+            }
+               
         j++;
         }
         i++;

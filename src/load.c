@@ -32,7 +32,7 @@ void	loadallimg(t_vars *vars)
 	vars->person.img[3] = load_img("img/character/U/Sprites.xpm", vars);
 	vars->coletables = load_img("img/coletables/pilha.xpm", vars);
 	vars->walls = load_img("img/walls/f.xpm", vars);
-	vars->assets.img = load_img("img/back/floor/floor.xpm", vars);
 	vars->door = load_img("img/door/doors.xpm",vars);
+	vars->floor = load_img("img/floor/floor.xpm", vars);
 }
 
