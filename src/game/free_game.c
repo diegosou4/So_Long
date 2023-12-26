@@ -31,11 +31,17 @@ void    free_game(t_vars *vars)
 void exit_game(t_vars *vars)
 {
         free_game(vars);
-  
-        mlx_clear_window(vars->mlx, vars->win);
-        mlx_destroy_image(vars->mlx, vars->canva.img); // Destroi uma imagem
-        mlx_destroy_window(vars->mlx, vars->win); // Destroi a janela
-        mlx_destroy_display(vars->mlx); // Encerra a conexao com Xserve
-        free(vars->mlx); // Free no mlx
-        exit(0);
+    mlx_destroy_image(vars->mlx, vars->person.img[0].img);
+    mlx_destroy_image(vars->mlx, vars->person.img[1].img);
+    mlx_destroy_image(vars->mlx, vars->person.img[2].img);
+    mlx_destroy_image(vars->mlx, vars->person.img[3].img);
+    mlx_destroy_image(vars->mlx, vars->coletables.img);
+    mlx_destroy_image(vars->mlx, vars->walls.img);
+    mlx_destroy_image(vars->mlx, vars->assets.img.img);
+    mlx_clear_window(vars->mlx, vars->win);
+    mlx_destroy_image(vars->mlx, vars->canva.img); // Destroi uma imagem
+    mlx_destroy_window(vars->mlx, vars->win); // Destroi a janela
+    mlx_destroy_display(vars->mlx); // Encerra a conexao com Xserve
+    free(vars->mlx); // Free no mlx
+    exit(0);
 }
