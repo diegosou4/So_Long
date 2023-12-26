@@ -39,6 +39,8 @@ int     keynotpress(t_vars *vars)
 {
     int j;
     j = 360;
+    if(vars->game.coletables[1] == 0)
+        paintcanvaW(vars, &vars->door , vars->door.curr_sx, vars->door.curr_sy, 256, 192, 256, 64 );
     if(vars->keypress == 1 && vars->keycode == KEY_D)
         j = right_animation(vars, vars->person.direction , j);
     if(vars->keypress == 1 && vars->keycode == KEY_A)
