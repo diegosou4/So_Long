@@ -38,8 +38,9 @@ int key_event(int keycode, t_vars *vars)
         vars->person.direction = 3;
     }
     vars->keypress = 1;
-    if(is_wall(vars) == 0)
+    if(is_exit(vars) == 0 || is_wall(vars) == 0)
         vars->keypress = 0;
+        
     return(0);
 }
 

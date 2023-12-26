@@ -109,13 +109,19 @@ void   paintback(t_vars *varg, t_img *img, int sx, int sy,int tamsprite,int star
 void    paintcanvaW(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int start ,float w, float h);
 void    paintwall(t_vars *vars);
 void    paintchar(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int start,float w, float h);
+void    paint_floor(t_vars *vars, int sx, int sy);
+void    paint_exit(t_vars *vars, int sx, int sy);
+void    paint_coletables(t_vars *vars, int sx, int sy);
+void  paint_player(t_vars *vars, int sx, int sy);
+
 // Event Key
 int key_event(int keycode, t_vars *vars);
 int     keynotpress(t_vars *vars);
-
+void which_key(int keycode, t_vars *vars);
 // Time
 
 // Event char
+
 int    charstop(t_vars *vars, int d, int i);
 int right_animation(t_vars *vars, int d, int j);
 int left_animation(t_vars *vars, int d, int j);
@@ -161,6 +167,6 @@ void draw_wall(t_map smapi, t_vars *vars);
 void    free_game(t_vars *vars);
 void free_img(t_vars *vars);
 void exit_game(t_vars *vars);
-
+int is_exit(t_vars *vars);
 int     is_wall(t_vars *vars);
 #endif

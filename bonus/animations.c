@@ -20,6 +20,7 @@ int    charstop(t_vars *vars, int d, int i)
         i = TAM_P * 8;
     paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy , i + TAM_P, i, width, heigth);
     paintcanva(vars,&vars->img,0,0);
+
    
     paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy , i + TAM_P, i, width, heigth);
     mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);

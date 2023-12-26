@@ -4,6 +4,32 @@
 #include "../includes/so_long.h"
 
 
+void which_key(int keycode, t_vars *vars)
+{
+    if(keycode == KEY_D)
+    {
+        vars->keycode = KEY_D;
+        vars->person.direction = 0;
+    }
+    if(keycode == KEY_A)
+    {
+        vars->keycode = KEY_A;
+        vars->person.direction = 1;
+    }
+     if(keycode == KEY_S)
+    {
+        vars->keycode = KEY_S;
+        vars->person.direction = 2;
+    }
+    if(keycode == KEY_W)
+    {
+        vars->keycode = KEY_W;
+        vars->person.direction = 3;
+    }
+       vars->keypress = 1;
+}
+
+
 int key_event(int keycode, t_vars *vars)
 {
     if(keycode == ESC && vars->keypress == 0)
@@ -29,8 +55,9 @@ int key_event(int keycode, t_vars *vars)
         vars->person.direction = 3;
     }
     vars->keypress = 1;
-    if(is_wall(vars) == 0)
+    if(is_exit(vars) == 0 || is_wall(vars) == 0)
         vars->keypress = 0;
+        
     return(0);
 }
 

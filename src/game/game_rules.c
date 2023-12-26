@@ -41,3 +41,26 @@ int     is_wall(t_vars *vars)
     return(1);
 }
 
+int is_exit(t_vars *vars)
+{
+    int i;
+    int j;
+    i = (vars->person.curr_sx / 64);
+    j = (vars->person.curr_sy / 64);
+    if(vars->person.direction == 0)
+        i = (vars->person.curr_sx + 64) / 64;
+    if(vars->person.direction == 1)
+        i = (vars->person.curr_sx - 64) / 64;
+    if(vars->person.direction == 2)
+        j = (vars->person.curr_sy + 64) / 64;
+    if(vars->person.direction == 3)
+        j = (vars->person.curr_sy - 64) / 64;
+    if(vars->game.map[i][j] == 'E' && vars->game.coletables[1] > 0)
+    {
+        return(0);
+    }
+    return(1);
+}
+
+
+
