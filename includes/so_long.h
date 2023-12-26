@@ -89,6 +89,7 @@ typedef struct	s_vars {
     t_assets    assets;
     t_character person;
     t_img      coletables;
+    t_img   door;
     t_img   img;
     t_img   canva;
     t_img   walls;
