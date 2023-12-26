@@ -4,7 +4,7 @@
 int    charstop(t_vars *vars, int d, int i)
 {
     paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy , TAM_P , i, width, heigth);
-    paintcanva(vars,&vars->img,0,0);
+
     mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
     return  (i);
 }
@@ -13,7 +13,7 @@ int right_animation(t_vars *vars, int d, int j)
 {
     paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy ,400, j, width, heigth);
     vars->person.curr_sx += 64;
-    paintcanva(vars,&vars->img,0,0);
+
     paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy ,400 ,j, width, heigth);
    
     mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
@@ -27,7 +27,7 @@ int left_animation(t_vars *vars, int d, int j)
 {
     paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy , 400  , j, width, heigth);
     vars->person.curr_sx -= 64;
-    paintcanva(vars,&vars->img,0,0);
+
     paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy , 400 , j, width, heigth);
  
 
@@ -41,7 +41,7 @@ int up_animation(t_vars *vars, int d, int j)
 {
         paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy , 400  , j, width, heigth);
         vars->person.curr_sy -= 64;
-        paintcanva(vars,&vars->img,0,0);
+
         paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy ,400 , j, width, heigth);
         mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
         vars->keypress = 0;
@@ -52,7 +52,6 @@ int down_animation(t_vars *vars, int d, int j)
 {
         paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy , 400  , j, width, heigth);
         vars->person.curr_sy += 64;
-        paintcanva(vars,&vars->img,0,0);
         paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy , 400 , j, width, heigth);
         mlx_put_image_to_window(vars->mlx, vars->win,vars->canva.img, 0, 0);
         vars->keypress = 0;

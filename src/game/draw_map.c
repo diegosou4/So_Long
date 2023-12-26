@@ -23,6 +23,8 @@ void    draw_window(t_map smapi, t_vars *vars)
     loadallimg(vars);
     vars->person.direction = 0;
     vars->keypress = 0;
+    vars->keycode = 0;
+    vars->person.moviment = 0;
     vars->person.curr_sx = (((smapi.sx[0]) + 1) * 64);
     vars->person.curr_sy = (((smapi.sy[0]) + 1)* 64);
     paintcanvaW(vars, &vars->person.img[0] ,vars->person.curr_sx, vars->person.curr_sy, 360, 320, width, heigth);
