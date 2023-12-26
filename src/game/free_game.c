@@ -38,6 +38,7 @@ void exit_game(t_vars *vars)
     mlx_destroy_image(vars->mlx, vars->coletables.img);
     mlx_destroy_image(vars->mlx, vars->walls.img);
     mlx_destroy_image(vars->mlx,vars->door.img);
+    mlx_destroy_image(vars->mlx,vars->floor.img);
     mlx_clear_window(vars->mlx, vars->win);
     mlx_destroy_image(vars->mlx, vars->canva.img); // Destroi uma imagem
     mlx_destroy_window(vars->mlx, vars->win); // Destroi a janela
