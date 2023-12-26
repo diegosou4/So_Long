@@ -31,9 +31,11 @@ void    free_game(t_vars *vars)
 void exit_game(t_vars *vars)
 {
         free_game(vars);
-
+  
         mlx_clear_window(vars->mlx, vars->win);
-        mlx_destroy_image(vars->mlx, vars->canva.img);
-        mlx_destroy_window(vars->mlx, vars->win);
+        mlx_destroy_image(vars->mlx, vars->canva.img); // Destroi uma imagem
+        mlx_destroy_display(vars->mlx); // Encerra a conexao com Xserve
+        mlx_destroy_window(vars->mlx, vars->win); // Destroi a janela
+        free(vars->mlx); // Free no mlx
         exit(0);
 }

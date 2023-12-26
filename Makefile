@@ -22,7 +22,7 @@ SRC = ./src/keyevent.c \
     ./src/game/free_game.c \
     ./src/game/game_rules.c
 
-CC = cc -g -Wall -Wextra -Werror main.c ${SRC}
+CC = cc  -Wall -Wextra -Werror main.c ${SRC}
 LIB = minilibx-linux/libmlx_Linux.a
 
 all:
