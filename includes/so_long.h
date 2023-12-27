@@ -51,7 +51,9 @@ typedef struct s_img
 	int		endian;
     char    *relative_path;
     int		img_width;
+    int     tamsprite;
 	int		img_height;
+    int     curr_sprite;
     int     curr_sx;
     int     curr_sy;
 }  t_img;
@@ -106,13 +108,16 @@ void loadallimg(t_vars *vars);
 // Paint
 void    paintcanva(t_vars *varg, t_img *img, int sx, int sy);
 void   paintback(t_vars *varg, t_img *img, int sx, int sy,int tamsprite,int start, float w, float h);
-void    paintcanvaW(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int start ,float w, float h);
+void    paintcanvaw(t_vars *varg, t_img *img, int tamsprite , int start);
 void    paintwall(t_vars *vars);
 void    paintchar(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int start,float w, float h);
 void    paint_floor(t_vars *vars, int sx, int sy);
 void    paint_exit(t_vars *vars, int sx, int sy);
 void    paint_coletables(t_vars *vars, int sx, int sy);
 void  paint_player(t_vars *vars, int sx, int sy);
+void	paint_canvacol(t_vars *varg, t_img *img,float w,float h);
+void  paint_wall(t_vars *vars, int sx, int sy);
+void	paint_pandexit(t_vars *varg, t_img *img,float w,float h);
 
 // Event Key
 int key_event(int keycode, t_vars *vars);
@@ -167,6 +172,7 @@ void draw_wall(t_map smapi, t_vars *vars);
 void    free_game(t_vars *vars);
 void free_img(t_vars *vars);
 void exit_game(t_vars *vars);
-int is_exit(t_vars *vars);
+int	locale_sx(t_vars *vars, int i);
+int	locale_sy(t_vars *vars, int j);
 int     is_wall(t_vars *vars);
 #endif

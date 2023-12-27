@@ -12,7 +12,7 @@
 
 
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 
 static int	ft_givestring(char *s, char sep, char *dest)

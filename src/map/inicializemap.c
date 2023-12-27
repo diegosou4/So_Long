@@ -12,17 +12,16 @@
 
 #include "../../includes/so_long.h"
 
-void    init_smap(t_map *smap)
+void	init_smap(t_map *smap)
 {
-    int i;
-    i = 0;
-    while(i < 2)
-    {
-        smap->coletables[i] = 0;
-        smap->exit[i] = 0;
-      i++;
-    }
-         smap->player = 0;
+	int	i;
 
+	i = 0;
+	while (i < 2)
+	{
+		smap->coletables[i] = 0;
+		smap->exit[i] = 0;
+		i++;
+	}
+	smap->player = 0;
 }
-

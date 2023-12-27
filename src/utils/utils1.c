@@ -1,47 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calloc.c                                           :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 12:30:51 by diegmore          #+#    #+#             */
-/*   Updated: 2023/12/19 12:30:52 by diegmore         ###   ########.fr       */
+/*   Created: 2023/12/19 12:31:49 by diegmore          #+#    #+#             */
+/*   Updated: 2023/12/19 12:31:50 by diegmore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
 
+#include "../../includes/so_long.h"
 
-static  void    *ft_bzero(void *s, size_t n)
+char	*ft_strdup(const char *src)
 {
-	size_t	i;
+	char	*dest;
+	int	size;
+	int	i;
 
 	i = 0;
-	while (n > 0)
+	size = ft_strlen((char *)src);
+	dest = (char *)malloc((size + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (i < size)
 	{
-		*(unsigned char *)(s + i) = 0;
+		dest[i] = src[i];
 		i++;
-		n--;
 	}
-	return (s);
-}
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*p;
-	size_t	result;
-
-	result = nmemb * size;
-	if (nmemb == 0 && size == 0)
-		p = (void *)malloc(1);
-	p = (void *)malloc(result);
-	if (!p)
-		return (0);
-	p = ft_bzero(p, result);
-	if (!p)
-	{
-		return (0);
-	}
-	return (p);
+	dest[i] = '\0';
+	return (dest);
 }

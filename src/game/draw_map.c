@@ -12,18 +12,20 @@
 
 #include "../../includes/so_long.h"
 
-
-void    draw_window(t_map smapi, t_vars *vars)
+void	draw_window(t_map smapi, t_vars *vars)
 {
-    vars->mlx = mlx_init();
-    vars->win = mlx_new_window(vars->mlx, (smapi.lenchar * TAM_B),(smapi.column * TAM_B), "So_Long");
-    vars->canva.img = mlx_new_image(vars->mlx,(smapi.lenchar * TAM_B),(smapi.column * TAM_B));
-    vars->canva.addr = mlx_get_data_addr(vars->canva.img, &vars->canva.bits_per_pixel, &vars->canva.line_length,
-								&vars->canva.endian);
-    loadallimg(vars);
-    vars->person.direction = 0;
-    vars->keypress = 0;
-    vars->keycode = 0;
-    vars->person.moviment = 0;
-
+	vars->mlx = mlx_init();
+	vars->win = mlx_new_window(vars->mlx, (smapi.lenchar * TAM_B), (smapi.column
+				* TAM_B), "So_Long");
+	vars->canva.img = mlx_new_image(vars->mlx, (smapi.lenchar * TAM_B),
+			(smapi.column * TAM_B));
+	vars->canva.addr = mlx_get_data_addr(vars->canva.img,
+			&vars->canva.bits_per_pixel,
+			&vars->canva.line_length,
+			&vars->canva.endian);
+	loadallimg(vars);
+	vars->person.direction = 0;
+	vars->keypress = 0;
+	vars->keycode = 0;
+	vars->person.moviment = 0;
 }

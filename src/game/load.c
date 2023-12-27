@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 t_img	load_img(char *path, t_vars *varg)
 {
@@ -32,7 +32,6 @@ void	loadallimg(t_vars *vars)
 	vars->person.img[3] = load_img("img/character/U/Sprites.xpm", vars);
 	vars->coletables = load_img("img/coletables/pilha.xpm", vars);
 	vars->walls = load_img("img/walls/f.xpm", vars);
-	vars->door = load_img("img/door/doors.xpm",vars);
+	vars->door = load_img("img/door/doors.xpm", vars);
 	vars->floor = load_img("img/floor/floor.xpm", vars);
 }
-

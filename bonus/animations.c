@@ -45,9 +45,11 @@ int right_animation(t_vars *vars, int d, int j)
     ft_usleep(100000 * 200);
     if(j >= 320)
     {
+        vars->keycode = 0;
         vars->keypress = 0;
         vars->person.moviment += 1;
     }
+
       
     return  (j);
 }

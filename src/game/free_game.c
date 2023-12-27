@@ -12,37 +12,37 @@
 
 #include "../../includes/so_long.h"
 
-void    free_game(t_vars *vars)
+void	free_game(t_vars *vars)
 {
+	int	i;
 
-    int i;
-    i = 0;
-    while(i < vars->game.column)
-    {
-        free(vars->game.map[i]);
-        free(vars->game.cpymap[i]);
-        i++;
-    }
-    free(vars->game.map);
-    free(vars->game.cpymap);
-
+	i = 0;
+	while (i < vars->game.column)
+	{
+		free(vars->game.map[i]);
+		free(vars->game.cpymap[i]);
+		i++;
+	}
+	free(vars->game.map);
+	free(vars->game.cpymap);
 }
 
-void exit_game(t_vars *vars)
+void	exit_game(t_vars *vars)
 {
-    free_game(vars);
-    int i; 
-    i = -1;
-    while(++i < 4)
-         mlx_destroy_image(vars->mlx, vars->person.img[i].img);
-    mlx_destroy_image(vars->mlx, vars->coletables.img);
-    mlx_destroy_image(vars->mlx, vars->walls.img);
-    mlx_destroy_image(vars->mlx,vars->door.img);
-    mlx_destroy_image(vars->mlx,vars->floor.img);
-    mlx_clear_window(vars->mlx, vars->win);
-    mlx_destroy_image(vars->mlx, vars->canva.img); // Destroi uma imagem
-    mlx_destroy_window(vars->mlx, vars->win); // Destroi a janela
-    mlx_destroy_display(vars->mlx); // Encerra a conexao com Xserve
-    free(vars->mlx); // Free no mlx
-    exit(0);
+	int	i;
+
+	free_game(vars);
+	i = -1;
+	while (++i < 4)
+		mlx_destroy_image(vars->mlx, vars->person.img[i].img);
+	mlx_destroy_image(vars->mlx, vars->coletables.img);
+	mlx_destroy_image(vars->mlx, vars->walls.img);
+	mlx_destroy_image(vars->mlx, vars->door.img);
+	mlx_destroy_image(vars->mlx, vars->floor.img);
+	mlx_clear_window(vars->mlx, vars->win);
+	mlx_destroy_image(vars->mlx, vars->canva.img);
+	mlx_destroy_window(vars->mlx, vars->win);
+	mlx_destroy_display(vars->mlx);
+	free(vars->mlx);
+	exit(0);
 }
