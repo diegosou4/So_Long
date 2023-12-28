@@ -32,8 +32,8 @@ void	paint_exit(t_vars *vars, int sx, int sy)
 
 void	paint_coletables(t_vars *vars, int sx, int sy)
 {
-	vars->coletables.curr_sx = sx;
-	vars->coletables.curr_sy = sy;
+	vars->coletables.curr_sx = sx + 16;
+	vars->coletables.curr_sy = sy + 10;
 	vars->coletables.tamsprite = 32;
 	vars->coletables.curr_sprite = 0;
 	paint_floor(vars, sx, sy);
@@ -45,8 +45,8 @@ void	paint_player(t_vars *vars, int sx, int sy)
 	int	i;
 
 	i = 0;
-	vars->person.img[0].curr_sx = sx;
-	vars->person.img[0].curr_sy = sy;
+	vars->person.img[0].curr_sx = sx + 16;
+	vars->person.img[0].curr_sy = sy + 10;
 	vars->person.curr_sx = sx;
 	vars->person.curr_sy = sy;
 	while (i < 4)

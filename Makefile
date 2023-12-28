@@ -1,3 +1,4 @@
+NAME = so_long
 SRC = ./src/event/keyevent.c \
     ./src/utils/paint.c \
     ./src/utils/pixel.c \
@@ -12,6 +13,7 @@ SRC = ./src/event/keyevent.c \
     ./src/utils/split.c \
     ./src/utils/calloc.c \
     ./src/utils/ft_putnbr.c \
+    ./src/map/namemap.c \
     ./src/map/maputils.c \
     ./src/map/createmap.c \
     ./src/map/checkmap.c \
@@ -21,10 +23,18 @@ SRC = ./src/event/keyevent.c \
     ./src/game/draw_wall.c \
     ./src/game/free_game.c \
     ./src/game/draw_choise.c \
-    ./src/game/game_rules.c
+    ./src/game/game_rules.c \
+    ./src/main.c
 
-CC = cc  main.c ${SRC}
+CC = cc 
+SRCOBJ = src/filesobj/
+CFLAGS = -Wall -Wextra -Werror
+OBJ = $(SRC:%.c=$(SRCOBJ)%.o)
 LIB = minilibx-linux/libmlx_Linux.a
+MLXFLAGS = -lX11 -lXext
 
-all:
-	${CC} ${LIB} -lX11 -lXext	
+all: $(NAME)
+    ${CC} ${CFLAGS} $(OBJ) ${LIB} ${MLXFLAGS} -o ${NAME} -g
+
+$(SRCOBJ)%.o: %.c
+    $(CC) -c $< -o $@ ${CFLAGS}

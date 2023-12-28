@@ -20,7 +20,10 @@ int	read_map(char *map, t_map *smap)
 
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
+	{
+		write(1,"Ocorreu um Erro ao abrir o mapa verifique se o arquivo existe \n",64);
 		return (0);
+	}
 	else
 	{
 		str = open_read(fd);

@@ -141,6 +141,7 @@ void	ft_putnbr(int n);
 void print_mov(t_vars *vars);
 
 // Map
+int namemap(char *pathname);
 int read_map(char *map, t_map *smap);
 int validate_map(char *str, t_map *smap);
 int validate_map2(char *str, int len);

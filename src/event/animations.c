@@ -16,8 +16,8 @@ int	right_animation(t_vars *vars, int d, int j)
 {
 	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sx += 64;
-	vars->person.img[d].curr_sx = vars->person.curr_sx;
-	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	vars->person.img[d].curr_sx = vars->person.curr_sx + 16;
+	vars->person.img[d].curr_sy = vars->person.curr_sy + 10;
 	paint_canvaw(vars, &vars->person.img[d], width, heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
@@ -31,8 +31,8 @@ int	left_animation(t_vars *vars, int d, int j)
 {
 	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sx -= 64;
-	vars->person.img[d].curr_sx = vars->person.curr_sx;
-	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	vars->person.img[d].curr_sx = vars->person.curr_sx + 16;
+	vars->person.img[d].curr_sy = vars->person.curr_sy + 10;
 	paint_canvaw(vars, &vars->person.img[d], width, heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
@@ -46,8 +46,8 @@ int	up_animation(t_vars *vars, int d, int j)
 {
 	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sy -= 64;
-	vars->person.img[d].curr_sx = vars->person.curr_sx;
-	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	vars->person.img[d].curr_sx = vars->person.curr_sx + 16;
+	vars->person.img[d].curr_sy = vars->person.curr_sy + 10;
 	paint_canvaw(vars, &vars->person.img[d], width, heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
@@ -61,8 +61,8 @@ int	down_animation(t_vars *vars, int d, int j)
 {
 	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sy += 64;
-	vars->person.img[d].curr_sx = vars->person.curr_sx;
-	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	vars->person.img[d].curr_sx = vars->person.curr_sx + 16;
+	vars->person.img[d].curr_sy = vars->person.curr_sy + 10;
 	paint_canvaw(vars, &vars->person.img[d], width, heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
