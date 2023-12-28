@@ -120,6 +120,7 @@ void  paint_wall(t_vars *vars, int sx, int sy);
 int key_event(int keycode, t_vars *vars);
 int     keynotpress(t_vars *vars);
 void which_key(int keycode, t_vars *vars);
+int destroy_game(t_vars *vars);
 // Time
 
 // Event char

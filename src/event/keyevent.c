@@ -51,8 +51,8 @@ int	key_event(int keycode, t_vars *vars)
 {
 	if (keycode == ESC && vars->keypress == 0)
 	{
+		write(1,"Jogo fechado\n",13);
 		exit_game(vars);
-		vars->keypress = 1;
 	}
 	if (vars->keypress == 0)
 		which_key(keycode, vars);

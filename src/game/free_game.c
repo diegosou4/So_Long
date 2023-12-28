@@ -30,7 +30,7 @@ void	free_game(t_vars *vars)
 void	exit_game(t_vars *vars)
 {
 	int	i;
-
+	
 	free_game(vars);
 	i = -1;
 	while (++i < 4)

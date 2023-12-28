@@ -5,6 +5,7 @@ SRC = ./src/event/keyevent.c \
     ./src/game/load.c \
     ./src/utils/sleep.c \
     ./src/event/animations.c \
+    ./src/event/mouseevent.c \
     ./src/externfunc/get_next_line/get_next_line_utils.c \
     ./src/externfunc/get_next_line/get_next_line.c \
     ./src/utils/utils1.c \
@@ -22,7 +23,7 @@ SRC = ./src/event/keyevent.c \
     ./src/game/draw_choise.c \
     ./src/game/game_rules.c
 
-CC = cc -Wall -Wextra -Werror main.c ${SRC}
+CC = cc  main.c ${SRC}
 LIB = minilibx-linux/libmlx_Linux.a
 
 all:
