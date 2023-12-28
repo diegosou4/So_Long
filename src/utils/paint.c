@@ -31,13 +31,14 @@ void	paintcanva(t_vars *varg, t_img *img, int sx, int sy)
 	}
 }
 
-void	paint_canvaw(t_vars *varg, t_img *img,float w,float h)
+void	paint_canvaw(t_vars *varg, t_img *img, float w, float h)
 {
 	float	x;
 	float	y;
 	int		k;
 	int		j;
 	t_vars	*p;
+
 	k = 0;
 	y = 0;
 	w = (img->img_width) / w;
@@ -49,8 +50,8 @@ void	paint_canvaw(t_vars *varg, t_img *img,float w,float h)
 		x = img->curr_sprite * w;
 		while (x < img->img_width && (j + img->curr_sprite) < img->tamsprite)
 		{
-			my_mlx_pixel_put(&p->canva,(img->curr_sx + j),(img->curr_sy + k), (my_mlx_pixel_get(img,
-							(int)x, (int)y)));
+			my_mlx_pixel_put(&p->canva, (img->curr_sx + j), (img->curr_sy + k),
+				(my_mlx_pixel_get(img, (int)x, (int)y)));
 			x += w;
 			j++;
 		}
@@ -58,5 +59,3 @@ void	paint_canvaw(t_vars *varg, t_img *img,float w,float h)
 		y += h;
 	}
 }
-
-

@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "../../includes/so_long.h"
-
 
 static int	ft_givestring(char *s, char sep, char *dest)
 {
@@ -37,7 +34,6 @@ static int	ft_givestring(char *s, char sep, char *dest)
 			dest[j] = '\0';
 			return (i);
 		}
-			
 	}
 	dest[j] = '\0';
 	return (i);
@@ -56,29 +52,28 @@ static void	*free_malloc(char **s, int i)
 
 char	**ft_split(char const *s, char c, int len, int column)
 {
-    char	**str;
-    int		i;
-    int		k;
-    int		p;
+	char	**str;
+	int		i;
+	int		k;
+	int		p;
 
-    if (!s)
-        return (0);
-    p = 0;
-    k = 0;
-    i = 0;
-    str = (char **) malloc ((column + 1)* sizeof(char *));
-    if (!str)
-        return (0);
-    while (i < column)
-    {
-        str[i] = (char *)malloc ((len + 1 ) *
-                sizeof(char));
-        if (!str[i])
-            return (free_malloc(str, i - 1 ));
-        k = ft_givestring((char *)(s + p), c, str[i]);	
+	if (!s)
+		return (0);
+	p = 0;
+	k = 0;
+	i = 0;
+	str = (char **)malloc((column + 1) * sizeof(char *));
+	if (!str)
+		return (0);
+	while (i < column)
+	{
+		str[i] = (char *)malloc((len + 1) * sizeof(char));
+		if (!str[i])
+			return (free_malloc(str, i - 1));
+		k = ft_givestring((char *)(s + p), c, str[i]);
 		p = p + k;
-        i++;
-    }
-    str[column] = NULL;
-    return (str);
+		i++;
+	}
+	str[column] = NULL;
+	return (str);
 }

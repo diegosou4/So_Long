@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../../includes/so_long.h"
 
 char	*ft_strdup(const char *src)
 {
 	char	*dest;
-	int	size;
-	int	i;
+	int		size;
+	int		i;
 
 	i = 0;
 	size = ft_strlen((char *)src);

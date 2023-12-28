@@ -65,11 +65,10 @@ char	*ft_itoa(int n)
 		num *= -1;
 	}
 	len_str += (ft_countwordls(num) + 1);
-	str = (char *)malloc(len_str *  sizeof(char));
+	str = (char *)malloc(len_str * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	str = ft_putintchar(num, str, (len_str - 2), negative);
-    str[len_str - 1] = '\0';
+	str[len_str - 1] = '\0';
 	return (str);
 }
-

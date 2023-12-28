@@ -124,7 +124,6 @@ void which_key(int keycode, t_vars *vars);
 
 // Event char
 
-int    charstop(t_vars *vars, int d, int i);
 int right_animation(t_vars *vars, int d, int j);
 int left_animation(t_vars *vars, int d, int j);
 int up_animation(t_vars *vars, int d, int j);
@@ -133,12 +132,12 @@ int down_animation(t_vars *vars, int d, int j);
 
 // Utils
 
-char	*ft_itoa(int n);
 char	*ft_strdup(const char *src);
 char	**ft_split(char const *s, char c, int len, int column);
 void	*ft_calloc(size_t nmemb, size_t size);
 // Count move
-void count_move(t_vars *vars);
+void	ft_putnbr(int n);
+void print_mov(t_vars *vars);
 
 // Map
 int read_map(char *map, t_map *smap);
