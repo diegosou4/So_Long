@@ -9,9 +9,11 @@ int	main(int argc,char **argv)
   t_vars  vars;
   if(argc == 2)
   {  
-    j = read_map(argv[1],&vars.game);
+    j = namemap(argv[1]);
+    if(j == 4)
+        j = read_map(argv[1],&vars.game);
     if(j == 0)
-      return(0);
+       return(0);
     draw_window(vars.game,&vars);
     draw_wall(vars.game, &vars);
     mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);
@@ -21,8 +23,6 @@ int	main(int argc,char **argv)
     mlx_loop(vars.mlx);
     return (0);
   }
-    
-  
 }
 
 

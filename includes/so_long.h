@@ -123,6 +123,10 @@ void which_key(int keycode, t_vars *vars);
 int destroy_game(t_vars *vars);
 // Time
 
+
+// Bonus
+int    charstop(t_vars *vars, int d, int i);
+
 // Event char
 
 int right_animation(t_vars *vars, int d, int j);

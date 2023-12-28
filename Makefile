@@ -1,4 +1,3 @@
-NAME = so_long
 SRC = ./src/event/keyevent.c \
     ./src/utils/paint.c \
     ./src/utils/pixel.c \
@@ -13,28 +12,49 @@ SRC = ./src/event/keyevent.c \
     ./src/utils/split.c \
     ./src/utils/calloc.c \
     ./src/utils/ft_putnbr.c \
-    ./src/map/namemap.c \
     ./src/map/maputils.c \
     ./src/map/createmap.c \
     ./src/map/checkmap.c \
     ./src/map/inicializemap.c \
     ./src/map/utilsreadmap.c \
+    ./src/map/namemap.c \
+    ./src/game/draw_map.c \
+    ./src/game/draw_wall.c \
+    ./src/game/free_game.c \
+    ./src/game/draw_choise.c \
+    ./src/game/game_rules.c
+
+SRCBONUS =  ./src/utils/paint.c \
+    ./src/utils/pixel.c \
+    ./src/map/readmap.c \
+    ./src/game/load.c \
+    ./src/utils/sleep.c \
+    ./src/externfunc/get_next_line/get_next_line_utils.c \
+    ./src/externfunc/get_next_line/get_next_line.c \
+    ./src/utils/utils1.c \
+    ./src/utils/split.c \
+    ./src/utils/calloc.c \
+    ./src/utils/ft_putnbr.c \
+    ./src/map/maputils.c \
+    ./src/map/createmap.c \
+    ./src/map/checkmap.c \
+    ./src/map/inicializemap.c \
+    ./src/map/utilsreadmap.c \
+    ./src/map/namemap.c \
     ./src/game/draw_map.c \
     ./src/game/draw_wall.c \
     ./src/game/free_game.c \
     ./src/game/draw_choise.c \
     ./src/game/game_rules.c \
-    ./src/main.c
+    ./bonus/animations.c \
+    ./bonus/countmove.c \
+    ./bonus/keyevent.c \
+        ./bonus/utils.c
 
-CC = cc 
-SRCOBJ = src/filesobj/
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
-OBJ = $(SRC:%.c=$(SRCOBJ)%.o)
 LIB = minilibx-linux/libmlx_Linux.a
-MLXFLAGS = -lX11 -lXext
 
-all: $(NAME)
-    ${CC} ${CFLAGS} $(OBJ) ${LIB} ${MLXFLAGS} -o ${NAME} -g
+all:
+	${CC} main.c ${SRCBONUS}  ${LIB} -lX11 -lXext -o so_long
 
-$(SRCOBJ)%.o: %.c
-    $(CC) -c $< -o $@ ${CFLAGS}
