@@ -107,17 +107,14 @@ void loadallimg(t_vars *vars);
 
 // Paint
 void    paintcanva(t_vars *varg, t_img *img, int sx, int sy);
-void   paintback(t_vars *varg, t_img *img, int sx, int sy,int tamsprite,int start, float w, float h);
-void    paintcanvaw(t_vars *varg, t_img *img, int tamsprite , int start);
+void	paint_canvaw(t_vars *varg, t_img *img,float w,float h);
 void    paintwall(t_vars *vars);
-void    paintchar(t_vars *varg, t_img *img, int sx, int sy, int tamsprite , int start,float w, float h);
 void    paint_floor(t_vars *vars, int sx, int sy);
 void    paint_exit(t_vars *vars, int sx, int sy);
 void    paint_coletables(t_vars *vars, int sx, int sy);
 void  paint_player(t_vars *vars, int sx, int sy);
-void	paint_canvacol(t_vars *varg, t_img *img,float w,float h);
 void  paint_wall(t_vars *vars, int sx, int sy);
-void	paint_pandexit(t_vars *varg, t_img *img,float w,float h);
+
 
 // Event Key
 int key_event(int keycode, t_vars *vars);

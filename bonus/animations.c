@@ -35,7 +35,7 @@ int right_animation(t_vars *vars, int d, int j)
 {
    if(j >= 320)
             j = 0;
-    paintback(vars, &vars->person.img[d], vars->person.curr_sx,vars->person.curr_sy , (j + TAM_P) , j, width, heigth);
+    paint_floor(vars,vars->floor.curr_sx, vars->floor.curr_sy);
     vars->person.curr_sx += 8;
     paintcanva(vars,&vars->img,0,0);
     paintcanvaW(vars, &vars->person.img[d] ,vars->person.curr_sx, vars->person.curr_sy , (j + TAM_P), (j), width, heigth);
@@ -49,8 +49,6 @@ int right_animation(t_vars *vars, int d, int j)
         vars->keypress = 0;
         vars->person.moviment += 1;
     }
-
-      
     return  (j);
 }
 

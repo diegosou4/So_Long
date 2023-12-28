@@ -18,17 +18,15 @@ int	charstop(t_vars *vars, int d, int i)
 		vars->person.curr_sy, TAM_P, i, width, heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	return (i);
-}
+}*/
 
 int	right_animation(t_vars *vars, int d, int j)
 {
-	paintback(vars, &vars->person.img[d], vars->person.curr_sx,
-		vars->person.curr_sy, 400, j, width, heigth);
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
+	paint_floor(vars,vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sx += 64;
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
-	//paintcanvaW(vars, &vars->person.img[d], vars->person.curr_sx + 16,
-		vars->person.curr_sy, 400, j, width, heigth);
+	vars->person.img[d].curr_sx = vars->person.curr_sx;
+	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	paint_canvaw(vars,&vars->person.img[d],width,heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
 	vars->keycode = 0;
@@ -38,29 +36,24 @@ int	right_animation(t_vars *vars, int d, int j)
 
 int	left_animation(t_vars *vars, int d, int j)
 {
-	paintback(vars, &vars->person.img[d], vars->person.curr_sx,
-		vars->person.curr_sy, 400, j, width, heigth);
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
+	paint_floor(vars,vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sx -= 64;
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
-	//paintcanvaW(vars, &vars->person.img[d], vars->person.curr_sx + 16,
-		vars->person.curr_sy, 400, j, width, heigth);
+	vars->person.img[d].curr_sx = vars->person.curr_sx;
+	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	paint_canvaw(vars,&vars->person.img[d],width,heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
 	vars->keycode = 0;
 	vars->person.moviment += 1;
 	return (j);
 }
-
 int	up_animation(t_vars *vars, int d, int j)
 {
-	paintback(vars, &vars->person.img[d], vars->person.curr_sx,
-		vars->person.curr_sy, 400, j, width, heigth);
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
+	paint_floor(vars,vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sy -= 64;
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
-	//paintcanvaW(vars, &vars->person.img[d], vars->person.curr_sx,
-		vars->person.curr_sy + 16, 400, j, width, heigth);
+	vars->person.img[d].curr_sx = vars->person.curr_sx;
+	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	paint_canvaw(vars,&vars->person.img[d],width,heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
 	vars->keycode = 0;
@@ -70,16 +63,14 @@ int	up_animation(t_vars *vars, int d, int j)
 
 int	down_animation(t_vars *vars, int d, int j)
 {
-	paintback(vars, &vars->person.img[d], vars->person.curr_sx,
-		vars->person.curr_sy, 400, j, width, heigth);
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
+	paint_floor(vars,vars->person.curr_sx, vars->person.curr_sy);
 	vars->person.curr_sy += 64;
-	paint_floor(vars, vars->person.curr_sx, vars->person.curr_sy);
-	//paintcanvaW(vars, &vars->person.img[d], vars->person.curr_sx,
-		vars->person.curr_sy + 16, 400, j, width, heigth);
+	vars->person.img[d].curr_sx = vars->person.curr_sx;
+	vars->person.img[d].curr_sy = vars->person.curr_sy;
+	paint_canvaw(vars,&vars->person.img[d],width,heigth);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
 	vars->keycode = 0;
 	vars->person.moviment += 1;
 	return (j);
-}*/
+}

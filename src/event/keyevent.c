@@ -56,21 +56,22 @@ int	key_event(int keycode, t_vars *vars)
 
 int	keynotpress(t_vars *vars)
 {
-	/*
 	int	j;
-	
-
 	j = 360;
 	if (vars->game.coletables[1] == 0)
-	//	paintcanvaW(vars, &vars->door, vars->door.curr_sx, vars->door.curr_sy,
-	//		256, 192, 256, 64);
+	{
+		vars->door.tamsprite = 256;
+		vars->door.curr_sprite = 192;
+		paint_canvaw(vars,&vars->door, 256,64);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
+	}
 	if (vars->keypress == 1 && vars->keycode == KEY_D)
-		j = right_animation(vars, vars->person.direction, j);
+		j = right_animation(vars, vars->person.direction, j);	
 	if (vars->keypress == 1 && vars->keycode == KEY_A)
 		j = left_animation(vars, vars->person.direction, j);
 	if (vars->keypress == 1 && vars->keycode == KEY_S)
 		j = down_animation(vars, vars->person.direction, j);
 	if (vars->keypress == 1 && vars->keycode == KEY_W)
 		j = up_animation(vars, vars->person.direction, j);
-	return (1);*/
+	return (1);
 }
