@@ -14,13 +14,17 @@ int	main(int argc,char **argv)
         j = read_map(argv[1],&vars.game);
     if(j == 0)
        return(0);
-    draw_window(vars.game,&vars);
+    if(draw_window(vars.game,&vars) == 0)
+    {
+      write(1, "Falha ao alocar memoria no jogo\n",32);
+      return(0);
+    }
     draw_wall(vars.game, &vars);
-    mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);
-    mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);
-    mlx_hook(vars.win,  17, 0, destroy_game, &vars);
-    mlx_loop_hook(vars.mlx, keynotpress, &vars);
-    mlx_loop(vars.mlx);
+     mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);
+  //  mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);
+  //  mlx_hook(vars.win,  17, 0, destroy_game, &vars);
+ //   mlx_loop_hook(vars.mlx, keynotpress, &vars);
+   // mlx_loop(vars.mlx);
     return (0);
   }
 }

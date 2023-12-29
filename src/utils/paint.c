@@ -38,7 +38,6 @@ void	paint_canvaw(t_vars *varg, t_img *img, float w, float h)
 	int		k;
 	int		j;
 	t_vars	*p;
-
 	k = 0;
 	y = 0;
 	w = (img->img_width) / w;

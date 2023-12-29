@@ -12,15 +12,15 @@
 
 #include "../../includes/so_long.h"
 
-void	paint_floor(t_vars *vars, int sx, int sy)
+void	paint(t_vars *vars,t_assets *assets, int sx, int sy)
 {
-	vars->floor.curr_sx = sx;
-	vars->floor.curr_sy = sy;
-	vars->floor.tamsprite = 64;
-	vars->floor.curr_sprite = 0;
-	paint_canvaw(vars, &vars->floor, 64, 64);
+	assets->img.curr_sx = sx;
+	assets->img.curr_sy = sy;
+	assets->img.tamsprite = 64;
+	assets->img.curr_sprite = 0;
+	paint_canvaw(vars, &assets->img, assets->img_width, assets->img_height);
 }
-
+/*
 void	paint_exit(t_vars *vars, int sx, int sy)
 {
 	vars->door.curr_sx = sx;
@@ -58,12 +58,4 @@ void	paint_player(t_vars *vars, int sx, int sy)
 	paint_floor(vars, sx, sy);
 	paint_canvaw(vars, &vars->person.img[0], width, heigth);
 }
-
-void	paint_wall(t_vars *vars, int sx, int sy)
-{
-	vars->walls.curr_sx = sx;
-	vars->walls.curr_sy = sy;
-	vars->walls.tamsprite = 120;
-	vars->walls.curr_sprite = 0;
-	paint_canvaw(vars, &vars->walls, 64, 64);
-}
+*/

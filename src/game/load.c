@@ -24,14 +24,37 @@ t_img	load_img(char *path, t_vars *varg)
 	return (img);
 }
 
+void 	givevalues(t_assets *assets, int img_with, int img_height)
+{
+	assets->img_width = img_with;
+	assets->img_height = img_height;
+}
+
 void	loadallimg(t_vars *vars)
 {
-	vars->person.img[0] = load_img("img/character/R/Sprites.xpm", vars);
-	vars->person.img[1] = load_img("img/character/L/Sprites.xpm", vars);
-	vars->person.img[2] = load_img("img/character/D/Sprites.xpm", vars);
-	vars->person.img[3] = load_img("img/character/U/Sprites.xpm", vars);
-	vars->coletables = load_img("img/coletables/pilha.xpm", vars);
-	vars->walls = load_img("img/walls/f.xpm", vars);
-	vars->door = load_img("img/door/doors.xpm", vars);
-	vars->floor = load_img("img/floor/floor.xpm", vars);
+	vars->assets = New (Class * 8);
+	vars->numassets = 8;
+	int i;
+	if(!vars->assets)
+	{	
+		vars->numassets = 0;
+		return;
+	}
+	vars->assets[0].img =  load_img("img/character/R/Sprites.xpm", vars);
+	vars->assets[1].img =  load_img("img/character/L/Sprites.xpm", vars);
+	vars->assets[2].img =  load_img("img/character/D/Sprites.xpm", vars);
+	vars->assets[3].img =  load_img("img/character/U/Sprites.xpm", vars);
+	vars->assets[4].img =  load_img("img/coletables/pilha.xpm", vars);
+	vars->assets[5].img =  load_img("img/walls/f.xpm", vars);
+	vars->assets[6].img =  load_img("img/door/doors.xpm", vars);
+	vars->assets[7].img =  load_img("img/floor/floor.xpm", vars);
+	givevalues(&vars->assets[COIN],32,32 );
+	givevalues(&vars->assets[WALLS],64,64);
+	givevalues(&vars->assets[FLOOR],64,64);
+	givevalues(&vars->assets[DOOR],256,64);
+	while(i < 4)
+	{
+		givevalues(&vars->assets[i],400,40);
+		i++;
+	}
 }

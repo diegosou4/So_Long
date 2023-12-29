@@ -2,30 +2,7 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#include "../minilibx-linux/mlx.h"
-#include "../src/externfunc/get_next_line/get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <math.h>
-#include <time.h>
-#include <stdlib.h>
-
-#define ESC 65307
-# define KEY_D 100
-# define KEY_A 97
-# define KEY_S 115
-# define KEY_D 100
-# define KEY_W 119
-# define TAM_P 40
-# define width 400
-# define heigth 40
-# define MAX_X 10
-# define MAX_Y 20
-# define TAM_B 64
-# define TIME_ANIM 100000 * 200
-
+#include "macros.h"
 
 typedef struct s_map
 {
@@ -40,8 +17,6 @@ typedef struct s_map
     int sy[2];
     
 } t_map;
-
-
 
 typedef struct s_img
 {
@@ -62,7 +37,7 @@ typedef struct s_img
 
 typedef struct s_character
 {
-    t_img img[4];
+    t_img img;
     char *relative_path;
     int    img_width;
     int    img_height;
@@ -88,15 +63,10 @@ typedef struct	s_vars {
     int     keypress;
     int     keycode;
     int     action;
+    int     numassets;
     t_map  game;
-    t_assets    assets;
-    t_character person;
-    t_img      coletables;
-    t_img   door;
-    t_img   img;
-    t_img   floor;
     t_img   canva;
-    t_img   walls;
+    t_assets    *assets;
 }				t_vars;
 void    ft_usleep(long long time);
 
@@ -110,7 +80,7 @@ void loadallimg(t_vars *vars);
 void    paintcanva(t_vars *varg, t_img *img, int sx, int sy);
 void	paint_canvaw(t_vars *varg, t_img *img,float w,float h);
 void    paintwall(t_vars *vars);
-void    paint_floor(t_vars *vars, int sx, int sy);
+void	paint(t_vars *vars,t_assets *assets, int sx, int sy);
 void    paint_exit(t_vars *vars, int sx, int sy);
 void    paint_coletables(t_vars *vars, int sx, int sy);
 void  paint_player(t_vars *vars, int sx, int sy);
@@ -135,6 +105,9 @@ int left_animation(t_vars *vars, int d, int j);
 int up_animation(t_vars *vars, int d, int j);
 int down_animation(t_vars *vars, int d, int j);
 
+
+// Load Assets
+void 	givevalues(t_assets *assets, int img_with, int img_height);
 
 // Utils
 
@@ -170,7 +143,7 @@ int end_valid(t_map *smap);
 
 // Window
 
-void    draw_window(t_map smapi, t_vars *vars);
+int	draw_window(t_map smapi, t_vars *vars);
 void draw_wall(t_map smapi, t_vars *vars);
 void    free_game(t_vars *vars);
 void free_img(t_vars *vars);
