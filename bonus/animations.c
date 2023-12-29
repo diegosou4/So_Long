@@ -30,7 +30,7 @@ int    charstop(t_vars *vars, int d, int i)
      return  (i);
 }
 
-int right_animation(t_vars *vars, int d, int j)
+int right_animation(t_vars *vars, int j)
 {
    if(j >= 320)
             j = 0;

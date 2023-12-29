@@ -21,10 +21,10 @@ int	main(int argc,char **argv)
     }
     draw_wall(vars.game, &vars);
      mlx_put_image_to_window(vars.mlx, vars.win,vars.canva.img, 0, 0);
-  //  mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);
+     mlx_hook(vars.win, 2, 1L<<0, key_event, &vars);
   //  mlx_hook(vars.win,  17, 0, destroy_game, &vars);
- //   mlx_loop_hook(vars.mlx, keynotpress, &vars);
-   // mlx_loop(vars.mlx);
+   mlx_loop_hook(vars.mlx, keynotpress, &vars);
+    mlx_loop(vars.mlx);
     return (0);
   }
 }

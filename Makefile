@@ -17,7 +17,10 @@ SRC = ./src/map/readmap.c \
     ./src/game/draw_wall.c \
     ./src/utils/paint.c \
     ./src/utils/pixel.c \
-    ./src/game/draw_choise.c 
+    ./src/game/draw_choise.c \
+    ./src/event/keyevent.c \
+    ./src/event/animations.c \
+    ./src/game/game_rules.c 
 
 
 CC = cc

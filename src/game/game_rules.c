@@ -14,25 +14,25 @@
 
 int	locale_sx(t_vars *vars, int i)
 {
-	i = (vars->floor.curr_sx / 64);
-	if (vars->person.direction == 0)
+	i = (vars->assets[FLOOR].img.curr_sx / 64);
+	if (vars->pdirection == 0)
 	{
-		i = (vars->floor.curr_sx + 64) / 64;
+		i = (vars->assets[FLOOR].img.curr_sx + 64) / 64;
 	}
-	if (vars->person.direction == 1)
+	if (vars->pdirection == 1)
 	{
-		i = (vars->floor.curr_sx - 64 ) / 64;
+		i = (vars->assets[FLOOR].img.curr_sx - 64 ) / 64;
 	}
 	return (i);
 }
 
 int	locale_sy(t_vars *vars, int j)
 {
-	j = (vars->floor.curr_sy / 64);
-	if (vars->person.direction == 2)
-		j = (vars->floor.curr_sy + 64) / 64;
-	if (vars->person.direction == 3)
-		j = (vars->floor.curr_sy - 64) / 64;
+	j = (vars->assets[FLOOR].img.curr_sx / 64);
+	if (vars->pdirection == 2)
+		j = (vars->assets[FLOOR].img.curr_sy + 64) / 64;
+	if (vars->pdirection == 3)
+		j = (vars->assets[FLOOR].img.curr_sy - 64) / 64;
 	return (j);
 }
 
@@ -57,7 +57,7 @@ int	is_wall(t_vars *vars)
 	if (vars->game.map[j][i] == 'E' && vars->game.coletables[1] == 0)
 	{
 		write(1, "Parabens meu nobre voce ganhou \n", 33);
-		exit_game(vars);
+	//	exit_game(vars);
 	}
 	return (1);
 }

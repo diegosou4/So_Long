@@ -49,6 +49,10 @@
 # define DOOR 6
 # define FLOOR 7
 
+
+// Common numbers
+
+# define middle 16
 //
 #define New malloc
 #define Class sizeof(t_assets)

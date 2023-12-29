@@ -64,6 +64,10 @@ typedef struct	s_vars {
     int     keycode;
     int     action;
     int     numassets;
+    int     pmoviment;
+    int     pdirection;
+    int     curr_sx;
+    int     curr_sy;
     t_map  game;
     t_img   canva;
     t_assets    *assets;
@@ -81,10 +85,9 @@ void    paintcanva(t_vars *varg, t_img *img, int sx, int sy);
 void	paint_canvaw(t_vars *varg, t_img *img,float w,float h);
 void    paintwall(t_vars *vars);
 void	paint(t_vars *vars,t_assets *assets, int sx, int sy);
-void    paint_exit(t_vars *vars, int sx, int sy);
-void    paint_coletables(t_vars *vars, int sx, int sy);
-void  paint_player(t_vars *vars, int sx, int sy);
-void  paint_wall(t_vars *vars, int sx, int sy);
+
+
+
 
 
 // Event Key
@@ -99,11 +102,8 @@ int destroy_game(t_vars *vars);
 int    charstop(t_vars *vars, int d, int i);
 
 // Event char
-
-int right_animation(t_vars *vars, int d, int j);
-int left_animation(t_vars *vars, int d, int j);
-int up_animation(t_vars *vars, int d, int j);
-int down_animation(t_vars *vars, int d, int j);
+void where_mov(t_vars *vars,int direction);
+void mov(t_vars *vars, int direction);
 
 
 // Load Assets
