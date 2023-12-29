@@ -24,6 +24,7 @@
 # define MAX_X 10
 # define MAX_Y 20
 # define TAM_B 64
+# define TIME_ANIM 100000 * 200
 
 
 typedef struct s_map
@@ -177,4 +178,8 @@ void exit_game(t_vars *vars);
 int	locale_sx(t_vars *vars, int i);
 int	locale_sy(t_vars *vars, int j);
 int     is_wall(t_vars *vars);
+
+// Bonus 
+
+void	paint_flooranimated(t_vars *varg, t_img *img, int sx, int sy);
 #endif

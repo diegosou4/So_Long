@@ -14,25 +14,25 @@
 
 int	locale_sx(t_vars *vars, int i)
 {
-	i = (vars->person.curr_sx / 64);
+	i = (vars->floor.curr_sx / 64);
 	if (vars->person.direction == 0)
 	{
-		i = (vars->person.curr_sx + 64) / 64;
+		i = (vars->floor.curr_sx + 64) / 64;
 	}
 	if (vars->person.direction == 1)
 	{
-		i = (vars->person.curr_sx - 64) / 64;
+		i = (vars->floor.curr_sx - 64 ) / 64;
 	}
 	return (i);
 }
 
 int	locale_sy(t_vars *vars, int j)
 {
-	j = (vars->person.curr_sy / 64);
+	j = (vars->floor.curr_sy / 64);
 	if (vars->person.direction == 2)
-		j = (vars->person.curr_sy + 64) / 64;
+		j = (vars->floor.curr_sy + 64) / 64;
 	if (vars->person.direction == 3)
-		j = (vars->person.curr_sy - 64) / 64;
+		j = (vars->floor.curr_sy - 64) / 64;
 	return (j);
 }
 
