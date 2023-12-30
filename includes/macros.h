@@ -40,15 +40,17 @@
 
 // Assets Map
 
-# define CHAR_R 0
-# define CHAR_L 1
-# define CHAR_D 2
-# define CHAR_U 3
-# define COIN 4
-# define WALLS 5
-# define DOOR 6
-# define FLOOR 7
-
+typedef enum e_type 
+{
+    CHAR_R,
+    CHAR_L,
+    CHAR_D,
+    CHAR_U,
+    COIN,
+    WALLS,
+    DOOR,
+    FLOOR
+}   t_type;
 
 // Common numbers
 

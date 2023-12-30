@@ -64,7 +64,6 @@ typedef struct	s_vars {
     int     keycode;
     int     action;
     int     numassets;
-    int     pmoviment;
     int     pdirection;
     int     curr_sx;
     int     curr_sy;
@@ -95,6 +94,7 @@ int key_event(int keycode, t_vars *vars);
 int     keynotpress(t_vars *vars);
 void which_key(int keycode, t_vars *vars);
 int destroy_game(t_vars *vars);
+void valuesforkey(t_vars *vars, int keycode);
 // Time
 
 
@@ -116,7 +116,7 @@ char	**ft_split(char const *s, char c, int len, int column);
 void	*ft_calloc(size_t nmemb, size_t size);
 // Count move
 void	ft_putnbr(int n);
-void print_mov(t_vars *vars);
+void	print_mov(int mov);
 
 // Map
 int namemap(char *pathname);

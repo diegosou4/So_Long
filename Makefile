@@ -20,7 +20,9 @@ SRC = ./src/map/readmap.c \
     ./src/game/draw_choise.c \
     ./src/event/keyevent.c \
     ./src/event/animations.c \
-    ./src/game/game_rules.c 
+    ./src/game/game_rules.c \
+    ./src/game/free_game.c \
+    ./src/event/mouseevent.c
 
 
 CC = cc

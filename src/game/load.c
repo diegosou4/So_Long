@@ -40,6 +40,7 @@ void	loadallimg(t_vars *vars)
 		vars->numassets = 0;
 		return;
 	}
+	i = 0;
 	vars->assets[0].img =  load_img("img/character/R/Sprites.xpm", vars);
 	vars->assets[1].img =  load_img("img/character/L/Sprites.xpm", vars);
 	vars->assets[2].img =  load_img("img/character/D/Sprites.xpm", vars);

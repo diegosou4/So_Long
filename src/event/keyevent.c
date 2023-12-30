@@ -12,71 +12,57 @@
 
 #include "../../includes/so_long.h"
 
-void	print_mov(t_vars *vars)
+void	print_mov(int mov)
 {
 	write(1, "Movimentos:", 11);
-	ft_putnbr(vars->pmoviment);
+	ft_putnbr(mov);
 	write(1, "\n", 1);
+}
+
+void valuesforkey(t_vars *vars, int keycode)
+{
+	if(keycode == KEY_D || keycode == KEY_A || keycode == KEY_S ||
+	keycode == KEY_W )
+	{
+		vars->keycode = keycode;
+		vars->assets[FLOOR].img.curr_sx = vars->curr_sx;
+		vars->assets[FLOOR].img.curr_sy = vars->curr_sy;
+		vars->keypress = 1;
+	}
+
 }
 
 void	which_key(int keycode, t_vars *vars)
 {
-	if (keycode == KEY_D && vars->keypress == 0)
-	{
-		vars->keycode = KEY_D;
+	if (keycode == KEY_D)
 		vars->pdirection = 0;
-		vars->keypress = 1;
-		vars->assets[FLOOR].img.curr_sx = vars->curr_sx;
-		vars->assets[FLOOR].img.curr_sy = vars->curr_sy;
-	}
-	if (keycode == KEY_A && vars->keypress == 0)
-	{
-		vars->keycode = KEY_A;
+	if (keycode == KEY_A)
 		vars->pdirection = 1;
-		vars->keypress = 1;
-	}
-	if (keycode == KEY_S && vars->keypress == 0)
-	{
-		vars->keycode = KEY_S;
+	if (keycode == KEY_S)
 		vars->pdirection = 2;
-		vars->keypress = 1;
-	}
-	if (keycode == KEY_W && vars->keypress == 0)
-	{
-		vars->keycode = KEY_W;
+	if (keycode == KEY_W)
 		vars->pdirection = 3;
-		vars->keypress = 1;
-	}
+	valuesforkey(vars,keycode);
 }
 
 int	key_event(int keycode, t_vars *vars)
 {
-	/*
 	if (keycode == ESC && vars->keypress == 0)
 	{
 		write(1,"Jogo fechado\n",13);
 		exit_game(vars);
-	}*/
+	}
 	if (vars->keypress == 0)
 		which_key(keycode, vars);
-	/*
 	if (is_wall(vars) == 0)
 		vars->keypress = 0;
-	*/
 	return (0);
 }
 
 int	keynotpress(t_vars *vars)
 {
-	int j;
-	j = 360;
-	if(vars->keypress == 1 && vars->keycode == KEY_D)
-		mov(vars,0);
-	if(vars->keypress == 1 && vars->keycode == KEY_A)
-		mov(vars,1);
-	if(vars->keypress == 1 && vars->keycode == KEY_S)
-		mov(vars,2);
-	if(vars->keypress == 1 && vars->keycode == KEY_W)
-		mov(vars,3);
+	if(vars->keypress == 1)
+		mov(vars,vars->pdirection);
+
 	return (1);
 }

@@ -23,7 +23,7 @@ void	paint(t_vars *vars,t_assets *assets, int sx, int sy)
 	{
 		vars->curr_sx = sx;
 		vars->curr_sy = sy;
-		vars->pmoviment = 0;
+		vars->keypress = 0;
 		assets->img.tamsprite = 360;
 		assets->img.curr_sprite = 320;
 		assets->img_width = 400;

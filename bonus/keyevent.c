@@ -16,7 +16,7 @@
 int key_event(int keycode, t_vars *vars)
 {
     if(keycode == ESC && vars->keypress == 0)
-       exit_game(vars);
+        exit_game(vars);
     if (vars->game.coletables[1] == 0)
 	{
 		vars->door.tamsprite = 256;
@@ -31,6 +31,7 @@ int key_event(int keycode, t_vars *vars)
         vars->keypress = 1;
         vars->floor.curr_sx = vars->person.curr_sx;
         vars->floor.curr_sy = vars->person.curr_sy;
+       
     }
     if(keycode == KEY_A && vars->keypress == 0)
     {
