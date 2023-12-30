@@ -55,7 +55,7 @@ typedef enum e_type
 
 # define MIDDLE 16
 //
-#define New malloc
-#define Class sizeof(t_assets)
+#define NEW malloc
+#define CLASS sizeof(t_assets)
 
 #endif

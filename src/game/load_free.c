@@ -34,7 +34,7 @@ void	loadallimg(t_vars *vars)
 {
 	int	i;
 
-	vars->assets = New(Class * 8);
+	vars->assets = NEW (CLASS * 8);
 	vars->numassets = 8;
 	i = 0;
 	if (!vars->assets)
