@@ -21,7 +21,7 @@ int	locale_sx(t_vars *vars, int i)
 	}
 	if (vars->pdirection == 1)
 	{
-		i = (vars->curr_sx- 64 ) / 64;
+		i = (vars->curr_sx - 64) / 64;
 	}
 	return (i);
 }

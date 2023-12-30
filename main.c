@@ -34,3 +34,5 @@ int	main(int argc,char **argv)
 // Criar funcao que coloca as paredes no game
 
 
+
+

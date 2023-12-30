@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mouseevent.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/30 16:17:56 by diegmore          #+#    #+#             */
+/*   Updated: 2023/12/30 16:18:00 by diegmore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/so_long.h"
 
-
-int destroy_game(t_vars *vars)
+int	destroy_game(t_vars *vars)
 {
-    write(1,"Jogo fechado\n",13);
-    exit_game(vars);
-    return(1);
+	write(1, "Jogo fechado\n", 13);
+	exit_game(vars);
+	return (1);
 }

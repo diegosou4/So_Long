@@ -19,17 +19,16 @@ void	print_mov(int mov)
 	write(1, "\n", 1);
 }
 
-void valuesforkey(t_vars *vars, int keycode)
+void	valuesforkey(t_vars *vars, int keycode)
 {
-	if(keycode == KEY_D || keycode == KEY_A || keycode == KEY_S ||
-	keycode == KEY_W )
+	if (keycode == KEY_D || keycode == KEY_A || 
+		keycode == KEY_S || keycode == KEY_W)
 	{
 		vars->keycode = keycode;
 		vars->assets[FLOOR].img.curr_sx = vars->curr_sx;
 		vars->assets[FLOOR].img.curr_sy = vars->curr_sy;
 		vars->keypress = 1;
 	}
-
 }
 
 void	which_key(int keycode, t_vars *vars)
@@ -42,14 +41,22 @@ void	which_key(int keycode, t_vars *vars)
 		vars->pdirection = 2;
 	if (keycode == KEY_W)
 		vars->pdirection = 3;
-	valuesforkey(vars,keycode);
+	valuesforkey(vars, keycode);
 }
 
 int	key_event(int keycode, t_vars *vars)
 {
+	if (vars->game.coletables[1] == 0)
+	{
+		vars->assets[DOOR].img.curr_sprite = 192;
+		vars->assets[DOOR].img.tamsprite = 256;
+		paint_canvaw(vars, &vars->assets[DOOR].img,
+			vars->assets[DOOR].img.tamsprite, 64);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
+	}
 	if (keycode == ESC && vars->keypress == 0)
 	{
-		write(1,"Jogo fechado\n",13);
+		write(1, "Jogo fechado\n", 13);
 		exit_game(vars);
 	}
 	if (vars->keypress == 0)
@@ -61,8 +68,7 @@ int	key_event(int keycode, t_vars *vars)
 
 int	keynotpress(t_vars *vars)
 {
-	if(vars->keypress == 1)
-		mov(vars,vars->pdirection);
-
+	if (vars->keypress == 1)
+		mov(vars, vars->pdirection);
 	return (1);
 }

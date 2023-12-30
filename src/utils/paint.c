@@ -12,6 +12,24 @@
 
 #include "../../includes/so_long.h"
 
+void	paint(t_vars *vars, t_assets *assets, int sx, int sy)
+{
+	assets->img.curr_sx = sx;
+	assets->img.curr_sy = sy;
+	assets->img.tamsprite = 64;
+	assets->img.curr_sprite = 0;
+	if (assets->img.img_width == 1200 && assets->img.img_height == 120)
+	{
+		vars->curr_sx = sx;
+		vars->curr_sy = sy;
+		assets->img.tamsprite = 360;
+		assets->img.curr_sprite = 320;
+		assets->img_width = 400;
+		assets->img_height = 40;
+	}
+	paint_canvaw(vars, &assets->img, assets->img_width, assets->img_height);
+}
+
 void	paintcanva(t_vars *varg, t_img *img, int sx, int sy)
 {
 	int	x;
@@ -38,6 +56,7 @@ void	paint_canvaw(t_vars *varg, t_img *img, float w, float h)
 	int		k;
 	int		j;
 	t_vars	*p;
+
 	k = 0;
 	y = 0;
 	w = (img->img_width) / w;
@@ -56,33 +75,5 @@ void	paint_canvaw(t_vars *varg, t_img *img, float w, float h)
 		}
 		k++;
 		y += h;
-	}
-}
-
-
-void	paint_flooranimated(t_vars *varg, t_img *img, int sx, int sy)
-{
-	float	x;
-	float	y;
-	int		k;
-	int		j;
-	t_vars	*p;
-
-	k = 0;
-	y = 0;
-	p = varg;
-	while (y < img->img_height)
-	{
-		j = 0;
-		x = img->curr_sprite * ((img->img_width) / 64);
-		while (x < img->img_width && (j + img->curr_sprite) < img->tamsprite)
-		{
-			my_mlx_pixel_put(&p->canva, (sx + j), (sy + k),
-				(my_mlx_pixel_get(img, (int)x, (int)y)));
-			x += ((img->img_width) / 64);
-			j++;
-		}
-		k++;
-		y += ((img->img_height) / 64);
 	}
 }

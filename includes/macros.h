@@ -16,7 +16,6 @@
 
 #include "../minilibx-linux/mlx.h"
 #include "../src/externfunc/get_next_line/get_next_line.h"
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -54,7 +53,7 @@ typedef enum e_type
 
 // Common numbers
 
-# define middle 16
+# define MIDDLE 16
 //
 #define New malloc
 #define Class sizeof(t_assets)

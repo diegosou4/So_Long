@@ -12,30 +12,29 @@
 
 #include "../../includes/so_long.h"
 
-
-void where_mov(t_vars *vars,int direction)
+void	where_mov(t_vars *vars, int direction)
 {
-	if(direction == 0)
+	if (direction == 0)
 		vars->curr_sx += 64;
-	if(direction == 1)
+	if (direction == 1)
 		vars->curr_sx -= 64;
-	if(direction == 2)
+	if (direction == 2)
 		vars->curr_sy += 64;
-	if(direction == 3)
+	if (direction == 3)
 		vars->curr_sy -= 64;
-
 }
 
-void mov(t_vars *vars, int direction)
+void	mov(t_vars *vars, int direction)
 {
-	static int  i;
+	static int	i;
+
 	i += 1;
-	paint(vars,&vars->assets[FLOOR],vars->curr_sx - 16,vars->curr_sy - 16);
-	where_mov(vars,direction);
-	paint(vars,&vars->assets[direction],vars->curr_sx,vars->curr_sy);	
+	paint(vars, &vars->assets[FLOOR], vars->curr_sx - MIDDLE, vars->curr_sy
+		- MIDDLE);
+	where_mov(vars, direction);
+	paint(vars, &vars->assets[direction], vars->curr_sx, vars->curr_sy);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
 	vars->keycode = 0;
 	print_mov(i);
 }
-
