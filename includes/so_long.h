@@ -94,7 +94,7 @@ void    paint_anim(t_vars *vars, int j);
 // Bonus
 
 void	count_move(t_vars *vars);
-int is_exit(t_vars *vars);
+int is_exit(t_vars *vars, int sx,int sy);
 
 // Utils
 

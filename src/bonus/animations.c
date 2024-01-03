@@ -18,10 +18,8 @@ void    charstop(t_vars *vars)
    
     if(i == 0)
         i = 320;
-    if(is_exit(vars) == 0)
-    {
+    if(is_exit(vars,vars->curr_sx,vars->curr_sy) == 0)
         paint(vars, &vars->assets[FLOOR], vars->curr_sx - MIDDLE,  vars->curr_sy - MIDDLE);
-    }
     vars->assets[vars->pdirection].img.curr_sx = vars->curr_sx;
     vars->assets[vars->pdirection].img.curr_sy = vars->curr_sy;
     vars->assets[vars->pdirection].img.tamsprite = i + TAM_P;
@@ -60,12 +58,12 @@ void where_bonus(t_vars *vars)
 
 }
 
-int is_exit(t_vars *vars)
+int is_exit(t_vars *vars, int sx, int sy)
 {
     int i;
     int j;
-    i = vars->assets[FLOOR].img.curr_sx / 64;
-    j = vars->assets[FLOOR].img.curr_sy / 64;
+    i = sx / 64;
+    j = sy / 64;
     if(vars->game.map[j][i] == 'E')
     {
         vars->assets[DOOR].img.curr_sprite = 0;
@@ -82,19 +80,21 @@ void paint_anim(t_vars *vars, int j)
 {
     static int sx;
     static int sy;
-
     if(j == 0)
     {
         sx = vars->curr_sx - MIDDLE;
         sy = vars->curr_sy - MIDDLE;
     }
-    paint(vars,&vars->assets[FLOOR],sx, sy);
+    if(is_exit(vars,sx,sy) == 0)
+        paint(vars,&vars->assets[FLOOR],sx,sy);
     if(j >= 200)
-        where_bonus(vars);
-    if(is_exit(vars) == 0)
     {
-          paint_canvaw(vars,&vars->assets[FLOOR].img,64,64);
+        vars->assets[FLOOR].img.curr_sx = sx;
+        vars->assets[FLOOR].img.curr_sy = sy;
+        where_bonus(vars);
     }
+    if(is_exit(vars,vars->assets[FLOOR].img.curr_sx,vars->assets[FLOOR].img.curr_sy) == 0)
+        paint(vars,&vars->assets[FLOOR],vars->assets[FLOOR].img.curr_sx,vars->assets[FLOOR].img.curr_sy);
     where_mov(vars);
     vars->assets[vars->pdirection].img.curr_sx = vars->curr_sx;
     vars->assets[vars->pdirection].img.curr_sy = vars->curr_sy;
