@@ -35,18 +35,6 @@ typedef struct s_img
 }  t_img;
 
 
-typedef struct s_character
-{
-    t_img img;
-    char *relative_path;
-    int    img_width;
-    int    img_height;
-    int     direction;
-    int     moviment;
-    int     curr_sx;
-    int     curr_sy;
-
-}   t_character;
 
 typedef struct s_assets
 {
@@ -67,6 +55,7 @@ typedef struct	s_vars {
     int     pdirection;
     int     curr_sx;
     int     curr_sy;
+    int     nmov;
     t_map  game;
     t_img   canva;
     t_assets    *assets;
@@ -96,19 +85,23 @@ int destroy_game(t_vars *vars);
 void valuesforkey(t_vars *vars, int keycode);
 
 // Event char
-void where_mov(t_vars *vars,int direction);
-void mov(t_vars *vars, int direction);
+void where_mov(t_vars *vars);
+void where_bonus(t_vars *vars);
+void mov(t_vars *vars);
 void    ft_usleep(long long time);
-
+void    charstop(t_vars *vars);
+void    paint_anim(t_vars *vars, int j);
 // Bonus
-int    charstop(t_vars *vars, int d, int i);
 
+void	count_move(t_vars *vars);
+int is_exit(t_vars *vars);
 
 // Utils
 
 char	*ft_strdup(const char *src);
 char	**ft_split(char const *s, char c, int len, int column);
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_itoa(int n);
 // Count move
 
 void	ft_putnbr(int n);

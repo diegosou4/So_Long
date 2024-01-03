@@ -5,28 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 14:14:01 by diegmore          #+#    #+#             */
-/*   Updated: 2023/12/27 14:14:06 by diegmore         ###   ########.fr       */
+/*   Created: 2023/12/19 12:31:15 by diegmore          #+#    #+#             */
+/*   Updated: 2023/12/19 12:31:16 by diegmore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	print_mov(int mov)
-{
-	write(1, "Movimentos:", 11);
-	ft_putnbr(mov);
-	write(1, "\n", 1);
-}
+
 void	valuesforkey(t_vars *vars, int keycode)
 {
 	if (keycode == KEY_D || keycode == KEY_A || 
 		keycode == KEY_S || keycode == KEY_W)
 	{
 		vars->keycode = keycode;
-		vars->assets[FLOOR].img.curr_sx = vars->curr_sx;
-		vars->assets[FLOOR].img.curr_sy = vars->curr_sy;
-		vars->keypress = 1;
 	}
 }
 
@@ -52,6 +44,7 @@ int	key_event(int keycode, t_vars *vars)
 		paint_canvaw(vars, &vars->assets[DOOR].img,
 			vars->assets[DOOR].img.tamsprite, 64);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
+		count_move(vars);
 	}
 	if (keycode == ESC && vars->keypress == 0)
 	{
@@ -59,15 +52,25 @@ int	key_event(int keycode, t_vars *vars)
 		exit_game(vars);
 	}
 	if (vars->keypress == 0)
+	{
 		which_key(keycode, vars);
-	if (is_wall(vars) == 0)
-		vars->keypress = 0;
-	return (0);
+		if (is_wall(vars) == 0)
+			vars->keypress = 0;
+		else
+			vars->keypress = 1;
+	}
+		return (0);		
 }
+
+
+
 
 int	keynotpress(t_vars *vars)
 {
+	if(vars->keypress == 0)
+		charstop(vars);
 	if (vars->keypress == 1)
-		mov(vars, vars->pdirection);
+		mov(vars);
+	count_move(vars);
 	return (1);
 }

@@ -52,8 +52,6 @@ int	is_wall(t_vars *vars)
 		vars->game.map[j][i] = '0';
 		vars->game.coletables[1] -= 1;
 	}
-	if (vars->game.map[j][i] == 'E' && vars->game.coletables[1] > 0)
-		return (0);
 	if (vars->game.map[j][i] == 'E' && vars->game.coletables[1] == 0)
 	{
 		write(1, "Parabens meu nobre voce ganhou \n", 33);

@@ -5,9 +5,9 @@ SRC_EVENT = mouseevent.c keyevent.c animations.c
 SRC_GAME =  draw_map.c game_rules.c load_free.c 
 SRC_UTILS = paint.c pixel.c sleep.c utils1.c split.c calloc.c ft_putnbr.c 
 SRC_EXTERN = get_next_line_utils.c get_next_line.c 
-
+SRC_BONUS = animations.c countmove.c keyevent.c utilsb.c
 SRC = $(addprefix ./src/map/, $(SRC_MAP)) \
-      $(addprefix ./src/event/, $(SRC_EVENT)) \
+      $(addprefix ./src/bonus/, $(SRC_BONUS)) \
       $(addprefix ./src/game/, $(SRC_GAME)) \
       $(addprefix ./src/utils/, $(SRC_UTILS)) \
       $(addprefix ./src/externfunc/get_next_line/, $(SRC_EXTERN))
@@ -28,6 +28,8 @@ $(SRCOBJ)%.o: src/%.c
 	@mkdir -p $(SRCOBJ)
 	@mkdir -p $(dir $@)
 	@${CC} ${CFLAGS} -c $< -o $@
+
+
 
 clean:
 	rm -rf $(SRCOBJ)

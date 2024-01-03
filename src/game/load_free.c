@@ -36,6 +36,7 @@ void	loadallimg(t_vars *vars)
 
 	vars->assets = NEW (CLASS * 8);
 	vars->numassets = 8;
+	vars->nmov = 0;
 	i = 0;
 	if (!vars->assets)
 		return ;
