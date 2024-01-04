@@ -66,7 +66,7 @@ int	keynotpress(t_vars *vars)
 	count_move(vars);
 	if (vars->keypress == 0)
 		charstop(vars);
-	if (vars->keypress == 1)
+	if (vars->keypress == 1 && vars->keycode != 0)
 	{
 		mov(vars);
 	}

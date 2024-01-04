@@ -32,17 +32,17 @@ OBJB = $(addprefix $(SRCOBJB), $(SRC_BONUS:./bonus/%.c=%.o))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@${CC} ${CFLAGS} -g main.c ${OBJ} ${LIB} ${LIBFLAGS} -o $(NAME)
+	@${CC} ${CFLAGS} -g so_long.c ${OBJ} ${LIB} ${LIBFLAGS} -o $(NAME)
 
 $(SRCOBJ)%.o: src/%.c
 	@mkdir -p $(SRCOBJ)
 	@mkdir -p $(dir $@)
 	@${CC} ${CFLAGS} -c $< -o $@
 
-bonus: $(NAME)
+bonus: $(NAMEB)
 
-$(NAME): $(OBJB)
-	@${CC} ${CFLAGS} -g main.c ${OBJB} ${LIB} ${LIBFLAGS} -o $(NAME)
+$(NAMEB): $(OBJB)
+	@${CC} ${CFLAGS} -g so_long.c ${OBJB} ${LIB} ${LIBFLAGS} -o $(NAMEB)
 
 $(SRCOBJB)%.o: bonus/%.c
 	@mkdir -p $(SRCOBJ)
@@ -50,9 +50,9 @@ $(SRCOBJB)%.o: bonus/%.c
 	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	rm -rf $(SRCOBJ)
+	@rm -rf $(SRCOBJ) $(SRCOBJB)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME) $(NAMEB)
 
 re: fclean all

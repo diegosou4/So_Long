@@ -49,6 +49,9 @@ int	validate_map(char *str, t_map *smap)
 	i = checkmap(smap->map, smap->column, smap->lenchar, smap);
 	if (i == 0)
 		return (print_error(smap, smap->column, 0));
+	i = values_strongmap(smap->map);
+	if (i == 0)
+		return (print_error(smap, smap->column, 0));
 	flood_fill(smap->sy[0], smap->sx[0], smap);
 	i = end_valid(smap);
 	if (i == 0)

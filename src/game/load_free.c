@@ -34,7 +34,7 @@ void	loadallimg(t_vars *vars)
 {
 	int	i;
 
-	vars->assets = NEW(CLASS * 8);
+	vars->assets = malloc (sizeof(t_assets) * 8);
 	vars->numassets = 8;
 	vars->nmov = 0;
 	i = 0;
@@ -45,9 +45,9 @@ void	loadallimg(t_vars *vars)
 	vars->assets[CHAR_D].img = load_img("img/character/D/Sprites.xpm", vars);
 	vars->assets[CHAR_U].img = load_img("img/character/U/Sprites.xpm", vars);
 	vars->assets[COIN].img = load_img("img/coletables/pilha.xpm", vars);
-	vars->assets[5].img = load_img("img/walls/f.xpm", vars);
-	vars->assets[6].img = load_img("img/door/doors.xpm", vars);
-	vars->assets[7].img = load_img("img/floor/floor.xpm", vars);
+	vars->assets[WALLS].img = load_img("img/walls/f.xpm", vars);
+	vars->assets[DOOR].img = load_img("img/door/doors.xpm", vars);
+	vars->assets[FLOOR].img = load_img("img/floor/floor.xpm", vars);
 	givevalues(&vars->assets[COIN], 32, 32);
 	givevalues(&vars->assets[WALLS], 64, 64);
 	givevalues(&vars->assets[FLOOR], 64, 64);

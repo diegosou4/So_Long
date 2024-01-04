@@ -21,7 +21,10 @@ int	namemap(char *pathname)
 	j = 0;
 	i = ft_strlen(pathname);
 	if (i <= 4)
+	{
+		write(1, "Formato de mapa invalido\n", 25);
 		return (0);
+	}
 	if (pathname[i - 1] == 'r')
 		j = 1;
 	if (pathname[i - 2] == 'e')

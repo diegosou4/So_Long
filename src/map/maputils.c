@@ -73,3 +73,28 @@ char	*joinmap(char *new_str, char *buffer)
 	free(buffer);
 	return (new_str);
 }
+
+int	values_strongmap(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] != '0' && map[i][j] != '1' && 
+				map[i][j] != 'C' && map[i][j] != 'E'
+				&& map[i][j] != 'P')
+			{
+				write(1, "Algum valor inserido no mapa e invalido\n", 40);
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}

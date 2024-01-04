@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: diegmore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/04 15:37:27 by diegmore          #+#    #+#             */
+/*   Updated: 2024/01/04 15:37:31 by diegmore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -100,6 +111,9 @@ char			*ft_strdup(const char *src);
 char			**ft_split(char const *s, char c, int len, int column);
 void			*ft_calloc(size_t nmemb, size_t size);
 char			*ft_itoa(int n);
+int				printef(void);
+int				printmem(void);
+int				printfilerror(void);
 // Count move
 
 void			ft_putnbr(int n);
@@ -126,6 +140,7 @@ void			map_flags(char cmap, t_map *smap, int sy, int sx);
 int				mid_wall(char **map, int len, int column);
 int				check_charmap(t_map *smap);
 void			flood_fill(int sy, int sx, t_map *smap);
+int				values_strongmap(char **map);
 int				end_valid(t_map *smap);
 
 // Window
