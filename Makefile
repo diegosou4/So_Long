@@ -1,4 +1,5 @@
 NAME = so_long
+NAMEB = so_long_bonus
 
 SRC_MAP = readmap.c maputils.c createmap.c checkmap.c inicializemap.c utilsreadmap.c namemap.c 
 SRC_EVENT = mouseevent.c keyevent.c animations.c 
@@ -20,12 +21,13 @@ SRC_BONUS = $(addprefix ./bonus/map/, $(SRC_MAP)) \
 			$(addprefix ./bonus/externfunc/get_next_line/, $(SRC_EXTERN))
 
 SRCOBJ = obj/
+SRCOBJB = objb/
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFLAGS = -lXext -lX11
 LIB = minilibx-linux/libmlx_Linux.a
 OBJ = $(addprefix $(SRCOBJ), $(SRC:./src/%.c=%.o))
-OBJB = $(addprefix $(SRCOBJ), $(SRC_BONUS:./bonus/%.c=%.o))
+OBJB = $(addprefix $(SRCOBJB), $(SRC_BONUS:./bonus/%.c=%.o))
 
 all: $(NAME)
 
@@ -33,6 +35,16 @@ $(NAME): $(OBJ)
 	@${CC} ${CFLAGS} -g main.c ${OBJ} ${LIB} ${LIBFLAGS} -o $(NAME)
 
 $(SRCOBJ)%.o: src/%.c
+	@mkdir -p $(SRCOBJ)
+	@mkdir -p $(dir $@)
+	@${CC} ${CFLAGS} -c $< -o $@
+
+bonus: $(NAME)
+
+$(NAME): $(OBJB)
+	@${CC} ${CFLAGS} -g main.c ${OBJB} ${LIB} ${LIBFLAGS} -o $(NAME)
+
+$(SRCOBJB)%.o: bonus/%.c
 	@mkdir -p $(SRCOBJ)
 	@mkdir -p $(dir $@)
 	@${CC} ${CFLAGS} -c $< -o $@
