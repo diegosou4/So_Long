@@ -12,27 +12,47 @@
 
 #include "../../includes/so_long.h"
 
-void	where_mov(t_vars *vars, int direction)
+void	where_mov(t_vars *vars)
 {
-	if (direction == 0)
+	if (vars->pdirection == 0)
 		vars->curr_sx += 64;
-	if (direction == 1)
+	if (vars->pdirection == 1)
 		vars->curr_sx -= 64;
-	if (direction == 2)
+	if (vars->pdirection == 2)
 		vars->curr_sy += 64;
-	if (direction == 3)
+	if (vars->pdirection == 3)
 		vars->curr_sy -= 64;
 }
 
-void	mov(t_vars *vars, int direction)
+int	is_exit(t_vars *vars, int sx, int sy)
+{
+	int	i;
+	int	j;
+
+	i = sx / 64;
+	j = sy / 64;
+	if (vars->game.map[j][i] == 'E')
+	{
+		vars->assets[DOOR].img.curr_sprite = 0;
+		vars->assets[DOOR].img.tamsprite = 64;
+		paint_canvaw(vars, &vars->assets[DOOR].img, 256, 64);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
+		return (1);
+	}
+	else
+		return (0);
+}
+
+void	mov(t_vars *vars)
 {
 	static int	i;
 
 	i += 1;
-	paint(vars, &vars->assets[FLOOR], vars->curr_sx - MIDDLE, vars->curr_sy
-		- MIDDLE);
-	where_mov(vars, direction);
-	paint(vars, &vars->assets[direction], vars->curr_sx, vars->curr_sy);
+	if (is_exit(vars, vars->curr_sx, vars->curr_sy) == 0)
+		paint(vars, &vars->assets[FLOOR], vars->curr_sx - MIDDLE, vars->curr_sy
+			- MIDDLE);
+	where_mov(vars);
+	paint(vars, &vars->assets[vars->pdirection], vars->curr_sx, vars->curr_sy);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->canva.img, 0, 0);
 	vars->keypress = 0;
 	vars->keycode = 0;

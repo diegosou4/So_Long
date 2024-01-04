@@ -37,7 +37,6 @@
 # define TAM_B 64
 # define TIME_ANIM 100000 * 200
 
-// Assets Map
 
 typedef enum e_type 
 {
@@ -51,10 +50,7 @@ typedef enum e_type
     FLOOR
 }   t_type;
 
-// Common numbers
-
 # define MIDDLE 16
-//
 #define NEW malloc
 #define CLASS sizeof(t_assets)
 
