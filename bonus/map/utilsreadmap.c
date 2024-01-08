@@ -17,7 +17,7 @@ int	len_map(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\n' && str[i] != '\0')
+	while (str && str[i] != '\n' && str[i] != '\0')
 	{
 		i++;
 	}

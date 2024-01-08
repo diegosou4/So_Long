@@ -14,8 +14,8 @@
 
 void	valuesforkey(t_vars *vars, int keycode)
 {
-	if (keycode == KEY_D || keycode == KEY_A 
-		|| keycode == KEY_S || keycode == KEY_W)
+	if (keycode == KEY_D || keycode == KEY_A || keycode == KEY_S
+		|| keycode == KEY_W)
 	{
 		vars->keycode = keycode;
 	}
@@ -32,6 +32,16 @@ void	which_key(int keycode, t_vars *vars)
 	if (keycode == KEY_W)
 		vars->pdirection = 3;
 	valuesforkey(vars, keycode);
+}
+
+void	diff_key(t_vars *vars)
+{
+	if (vars->keycode != ESC && vars->keycode != KEY_D && vars->keycode != KEY_A
+		&& vars->keycode != KEY_S && vars->keycode != KEY_D
+		&& vars->keycode != KEY_W)
+	{
+		vars->keypress = 0;
+	}
 }
 
 int	key_event(int keycode, t_vars *vars)
@@ -58,6 +68,8 @@ int	key_event(int keycode, t_vars *vars)
 		else
 			vars->keypress = 1;
 	}
+	if (vars->keypress == 1)
+		diff_key(vars);
 	return (0);
 }
 

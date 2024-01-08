@@ -41,7 +41,7 @@ int	validate_map(char *str, t_map *smap)
 
 	smap->lenchar = len_map(str);
 	smap->column = validate_map2(str, smap->lenchar);
-	if (smap->column < 3)
+	if (smap->column < 3 || smap->lenchar < 3)
 		return (print_e());
 	smap->map = ft_split(str, '\n', smap->lenchar, smap->column);
 	smap->cpymap = ft_split(str, '\n', smap->lenchar, smap->column);
@@ -56,8 +56,6 @@ int	validate_map(char *str, t_map *smap)
 	i = end_valid(smap);
 	if (i == 0)
 		return (print_error(smap, smap->column, 0));
-	if (smap->column > MAX_X || smap->lenchar > MAX_Y)
-		return (print_error(smap, smap->column, 1));
 	return (print_d());
 }
 
@@ -69,10 +67,10 @@ int	validate_map2(char *str, int len)
 
 	column = 0;
 	i = 0;
-	while (str[i] != '\0' && str)
+	while (str && str[i] != '\0')
 	{
 		line_len = 0;
-		while (str[i] != '\n' && str[i] != '\0')
+		while (str && str[i] != '\n' && str[i] != '\0')
 		{
 			line_len++;
 			i++;

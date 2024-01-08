@@ -101,7 +101,7 @@ void			charstop(t_vars *vars);
 void			paint_anim(t_vars *vars, int j);
 void			update_p(t_vars *vars, int j);
 // Bonus
-
+void			diff_key(t_vars *vars);
 void			count_move(t_vars *vars);
 int				is_exit(t_vars *vars, int sx, int sy);
 
