@@ -26,5 +26,8 @@ Para executar o So_Long em sua máquina, siga estas etapas:
    ```bash
    git clone https://github.com/your_username/So_Long.git
    cd So_Long
+   cd minilibx-linux
    make
-   ./so_long caminhodomapa
+   cd ..
+   make
+   ./so_long_bonus caminhodomapa
