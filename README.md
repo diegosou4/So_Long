@@ -6,6 +6,7 @@ So_Long é um envolvente projeto de mini game desenvolvido com o objetivo princi
 
 ## Screenshots
 ![GAMEGIF](extras/game.gif)
+![GAME2GIF](extras/game2.gif)
 ![First](https://i.imgur.com/nS1wrKW.png)
 ## Exemplo de Mapa
 ![MAPA](https://i.imgur.com/4u5c9Cc.png)
