@@ -5,6 +5,7 @@
 So_Long é um envolvente projeto de mini game desenvolvido com o objetivo principal de utilizar a [biblioteca Mlx](https://github.com/42Paris/minilibx-linux) fornecida pela 42. O projeto envolve a criação de um jogo baseado em um mapa fornecido pelo usuário que inclui paredes, itens colecionáveis, a posição inicial do personagem e uma saída. Este projeto foi uma jornada gratificante, exigindo experimentação, a criação de funções personalizadas e a exploração de vários conceitos para alcançar o resultado final.
 
 ## Screenshots
+![GAMEGIF](extra/game.gif)
 ![GAME]([https://i.imgur.com/GpIAV0a.mp4](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHhkZWhvY2ZiYm4ydnIwa3IyZjh4eTA2NjdmZTkzYmttYjhwdmF6bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/x4E9ja9m7pbWPLopjM/giphy.gif)https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHhkZWhvY2ZiYm4ydnIwa3IyZjh4eTA2NjdmZTkzYmttYjhwdmF6bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/x4E9ja9m7pbWPLopjM/giphy.gif)
 ![First](https://i.imgur.com/nS1wrKW.png)
 
