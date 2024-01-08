@@ -1,45 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: diemorei <diemorei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:56:00 by diegmore          #+#    #+#             */
-/*   Updated: 2023/10/16 22:27:55 by diemorei         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:53:03 by diemorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static int	ft_countwordls(int n)
-{
-	int	wordls;
-
-	wordls = 0;
-	if (n < 0)
-	{
-		wordls++;
-		n *= -1;
-	}
-	if (n == 0)
-		wordls++;
-	while (n != 0)
-	{
-		n = n / 10;
-		wordls++;
-	}
-	return (wordls);
-}
-
 void	ft_putnbr(int n)
 {
 	int	i;
-	int	worlds;
 
-	worlds = 0;
 	i = 0;
-	worlds = ft_countwordls(n);
 	if (n > 9)
 	{
 		i = i + (n % 10);

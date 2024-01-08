@@ -21,7 +21,7 @@ void	print_mov(int mov)
 
 void	valuesforkey(t_vars *vars, int keycode)
 {
-	if (keycode == KEY_D || keycode == KEY_A || 
+	if (keycode == KEY_D || keycode == KEY_A ||
 		keycode == KEY_S || keycode == KEY_W)
 	{
 		vars->keycode = keycode;
